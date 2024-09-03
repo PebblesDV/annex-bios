@@ -4,7 +4,6 @@
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
-    /* font-size: 16px; */
     color: white;
 }
 
@@ -18,7 +17,7 @@ body {
 }
 
 .container {
-    padding-inline: 80px;
+    padding-inline: 150px;
 }
 
 .bold {

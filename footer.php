@@ -21,7 +21,7 @@
                 <a class="button" href="">LEES MEER</a>
             </div>
             <div class="top-middle">
-                <h2>NAVIGEER</h2>
+                <h2 class="bold">NAVIGEER</h2>
                 <div class="footer-links">
                     <a class="footer-nav" href="">Werken bij</a>
                     <a class="footer-nav" href="">Veelgestelde vragen</a>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="top-right">
-                <h2>VOLG ONS</h2>
+                <h2 class="bold">VOLG ONS</h2>
                 <img class="socials" src="assets/images/icons/social_media.svg" alt="">
             </div>
         </div>

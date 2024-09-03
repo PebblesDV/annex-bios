@@ -1,0 +1,96 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-block: 100px;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #399CFF;
+    padding: 30px;
+}
+
+.welcome-text {
+    width: 60%;
+}
+
+.welcome-button {
+    background-color: white;
+    padding-block: 10px;
+    padding-inline: 20px;
+    color: #399CFF;
+    text-decoration: none;
+    font-size: 12px;
+    width: fit-content;
+    transition: 0.2s;
+
+}
+
+.welcome-button:hover {
+    background-color: rgb(192, 189, 189);
+}
+
+.map-and-contact {
+    display: flex;
+    gap: 20px;
+    background-color: white;
+    padding: 30px;
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #399CFF;
+    width: 50%;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+}
+
+.map-image {
+    overflow: hidden;
+}
+
+.map {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.2s;
+}
+
+.map:hover {
+    scale: 1.05;
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+}
+
+.contact-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: fit-content;
+}
+
+.right-content {
+    display: flex;
+    width: 50%;
+    /* height: fit-content; */
+}
+
+.vestiging {
+    width: 100%;
+}
+
+.contact-link {
+    text-decoration: none;
+}
+

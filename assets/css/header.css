@@ -1,0 +1,44 @@
+.header {
+    width: 100%;
+    height: 150px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60%;
+    background-color: white;
+}
+
+.logo-link {
+    width: 20%;
+}
+
+.logo {
+    width: 100%;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.page-link:hover {
+    border-bottom: 1px solid black;
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    height: 40%;
+    background-color: #399CFF;
+}
+

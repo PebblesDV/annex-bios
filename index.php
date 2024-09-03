@@ -9,6 +9,12 @@
 
 <body>
 
+    <?php include "header.php" ?>
+
+    <p>hallo ifbvadpcnudobvfip</p>
+
+    <?php include "footer.php" ?>
+
 </body>
 
 </html>

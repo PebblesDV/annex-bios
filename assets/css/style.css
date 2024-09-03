@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: 16px; */
+    color: white;
+}
+
+body {
+    background-image: url("/assets/images/body/header_afbeelding.jpg");
+    background-color: black;
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* min-height: 100vh; */
+}
+
+.container {
+    padding-inline: 80px;
+}
+
+.bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}

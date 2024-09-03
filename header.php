@@ -18,7 +18,9 @@
 
     <div class="header">
         <div class="header-top container">
-            <img class="logo" src="assets/images/logo/logo.png" alt="logo">
+            <a class="logo-link" href="index.php">
+                <img class="logo" src="assets/images/logo/logo.png" alt="logo">
+            </a>
             <div class="header-links">
                 <a class="page-link" href="">FILM AGENDA</a>
                 <a class="page-link" href="">ALLE VESTIGINGEN</a>

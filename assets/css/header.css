@@ -11,9 +11,12 @@
     background-color: white;
 }
 
-.logo {
+.logo-link {
     width: 20%;
-    height: auto;
+}
+
+.logo {
+    width: 100%;
 }
 
 .header-links {
@@ -24,6 +27,12 @@
 .page-link {
     text-decoration: none;
     color: black;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.page-link:hover {
+    border-bottom: 1px solid black;
 }
 
 .header-bottom {

@@ -1,55 +1,58 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login pagina</title>
 </head>
+
 <body>
     <div class="container">
         <div class="loginForm">
 
-        
-        <!-- <?php  
-
-          include_once('assets/php/connect.php');
-          if (isset($_POST['submit'])){
-            $username = $_POST['username'];
-            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-          }
-
-
-          $sqlQuery = mysqli_prepare($conn, "SELECT username FROM logininfo WHERE username = ?");
-          mysqli_stmt_bind_param($sqlQuery, 's', $username);
-          mysqli_stmt_execute($sqlQuery);
-          mysqli_stmt_store_result($sqlQuery);
-
-
-          if(mysqli_stmt_num_rows($sqlQuery) !=0 && isset($_POST['submit']) != null) {
-
-            ?>
-
-            <div class="pop-up">
-                <p>Deze gebruikersnaam is al in gebruik!</p>
-            </div>
-            <?php
-          } else if (isset($_POST['submit']) != null) {
-            $insert_query = mysqli_prepare($conn, "INSERT INTO logininfo(username, passwordHere) VALUES(?, ?)");
-            mysqli_stmt_bind_param($insert_query, 'ss', $username, $password);
-            mysqli_stmt_execute($insert_query) or die ("Error Occured");
-
-            ?>
-            
-            <div class="pop-up">
-                <p>De registratie is compleet!</p>
-            </div>
 
             <?php
-            mysqli_stmt_close($sqlQuery);
-            mysqli_stmt_close($insert_query);
-          }
-            ?> -->
 
+            include_once('assets/php/connect.php');
+            if (isset($_POST['submit'])) {
+                //getting password & user
+                $username = mysqli_real_escape_string($conn, $_POST['username']);
+                $password = $_POST['password'];
+
+                //query
+                $query = "SELECT * FROM logininfo WHERE username='$username'";
+
+                $result = $conn->query($query);
+
+                if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+
+                $hash_pass = $row['passwordHere'];
+
+                if (password_verify($password, $hash_pass)) {
+                    $_SESSION['SavedUsername'] = $username;
+                    header("Location: index.php");
+                    exit();
+                } else {
+            ?>
+                    <div class="pop-up">
+                        <p>Fout wachtwoord of gebruikersnaam.</p>
+                    </div>
+            <?php
+                }
+            } else { ?>
+                <div class="pop-up">
+                  <p>Geen account gevonden.</p>
+                </div>
+                <?php
+            }
+        } else {
+            ?>
 
             <form action="" method="post">
                 <header>Login</header>
@@ -60,13 +63,13 @@
                     <input type="text" name="username" id="username" required>
                 </div>
 
-                <div class="inputField"> 
+                <div class="inputField">
                     <label for="password">Wachtwoord</label>
                     <input type="password" name="password" id="password" required>
                 </div>
 
                 <div class="inputField">
-                    <input type="submit" name="submit" value="login">
+                    <input type="submit" name="submit" value="Log nu in!">
                 </div>
                 <br>
                 <div class="link">
@@ -74,6 +77,8 @@
                 </div>
             </form>
         </div>
+        <?php } ?>
     </div>
 </body>
+
 </html>

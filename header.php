@@ -22,7 +22,7 @@
                 <img class="logo" src="assets/images/logo/logo.png" alt="logo">
             </a>
             <div class="header-links">
-                <a class="page-link" href="">FILM AGENDA</a>
+                <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
                 <a class="page-link" href="">ALLE VESTIGINGEN</a>
                 <a class="page-link" href="">CONTACT</a>
             </div>

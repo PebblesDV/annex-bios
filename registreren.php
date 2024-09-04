@@ -35,7 +35,7 @@
           } else if (isset($_POST['submit']) != null) {
             $insert_query = mysqli_prepare($conn, "INSERT INTO logininfo(username, passwordHere) VALUES(?, ?)");
             mysqli_stmt_bind_param($insert_query, 'ss', $username, $password);
-            mysqli_stmt_execute($insert_query) or die ("Error Occured");
+            mysqli_stmt_execute($insert_query);
 
             ?>
             

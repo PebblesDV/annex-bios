@@ -18,7 +18,7 @@
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
                 <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+                <a href="film-detail.php" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
                 <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+                <a href="film-detail.php" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
                 <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+                <a href="film-detail.php" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
                 <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+                <a href="film-detail.php" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>
 
@@ -58,7 +58,7 @@
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
                 <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+                <a href="film-detail.php" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>
 
@@ -68,7 +68,7 @@
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
                 <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+                <a href="film-detail.php" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>
     </div>

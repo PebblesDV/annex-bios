@@ -23,7 +23,27 @@
         </div>
 
         <div class="card">
-            <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+            <img class="card-img" src="assets/images/films/deadpool.jpg" alt="movie">
+            <div class="card-info">
+                <h2 class="text">Title of the movie</h2>
+                <p class="text">Release: 15-09-2002</p>
+                <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
+                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img" src="assets/images/films/pieter konijn.jpg" alt="movie">
+            <div class="card-info">
+                <h2 class="text">Title of the movie</h2>
+                <p class="text">Release: 15-09-2002</p>
+                <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
+                <a href="" class="card-btn">MEER INFO & TICKETS</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img" src="assets/images/films/solo.jpeg" alt="movie">
             <div class="card-info">
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
@@ -43,27 +63,7 @@
         </div>
 
         <div class="card">
-            <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
-            <div class="card-info">
-                <h2 class="text">Title of the movie</h2>
-                <p class="text">Release: 15-09-2002</p>
-                <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
-            <div class="card-info">
-                <h2 class="text">Title of the movie</h2>
-                <p class="text">Release: 15-09-2002</p>
-                <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-                <a href="" class="card-btn">MEER INFO & TICKETS</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+            <img class="card-img" src="assets/images/films/deadpool.jpg" alt="movie">
             <div class="card-info">
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>

@@ -1,0 +1,12 @@
+.movie-page {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-block: 50px;
+}
+
+.selection-top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

@@ -68,6 +68,7 @@
     width: 100%;
     object-fit: cover;
     transition: 0.2s;
+    height: 100%;
 }
 
 .map:hover {
@@ -98,6 +99,14 @@
 
 .contact-link {
     text-decoration: none;
+    display: block;
+    height: 100%;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.contact-link:hover {
+    border-bottom: 1px solid white;
 }
 
 .selection-top {

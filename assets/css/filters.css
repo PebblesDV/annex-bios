@@ -49,3 +49,7 @@
 .checkbox-text {
     color: #399CFF;
 }
+
+.checkbox-text:hover {
+    cursor: pointer;
+}

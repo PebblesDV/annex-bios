@@ -8,11 +8,11 @@
 }
 
 body {
-    background-image: url("/assets/images/body/header_afbeelding.jpg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), black), url("/assets/images/body/header_afbeelding.jpg");
     background-color: black;
     /* background-size: cover; */
     /* background-position: center; */
-    /* background-repeat: no-repeat; */
+    background-repeat: no-repeat;
     /* min-height: 100vh; */
 }
 

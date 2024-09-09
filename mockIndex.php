@@ -77,7 +77,12 @@
 
                 foreach ($movieData['data'] as $data) { {
                         if ($data['email'] == $selectedEmail) {
-                            echo $data['email'];?> <br>
+                            ?> Selected Email: <?=$data['email']?> 
+                            <br>
+                            Id: <?=$data['id']?>
+                            <br>
+                            Full name: <?=$data['first_name']?> <?=$data['last_name'];?>
+                            <br>
                             <?php
                         } ?>
                         
@@ -100,7 +105,7 @@
                 <br>
                 <?=$data['email']?>
                 <br>
-                Name: <?=$data['first_name']?> <?=$data['last_name']?>
+                <?=$data['first_name']?> <?=$data['last_name']?>
                 <br>
                 <br>
                 <?php

@@ -33,8 +33,10 @@
             <form action="">
                 <select class="movie-dropdown" name="movies" id="movies">
                     <option value="" disabled selected hidden>Kies je film</option>
-                    <option value="jurassic">Jurassic World</option>
-                    <option value="deadpool">Deadpool</option>
+                    <option value="jurassic">Jurassic World: Fallen Kingdom</option>
+                    <option value="deadpool">Deadpool 2</option>
+                    <option value="pieter">Pieter Konijn</option>
+                    <option value="solo">Star Wars: Solo</option>
                 </select>
             </form>
 

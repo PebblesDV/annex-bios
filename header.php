@@ -29,6 +29,18 @@
         </div>
         <div class="header-bottom container">
             <p>KOOP JE TICKETS</p>
+
+            <form action="">
+                <select class="movie-dropdown" name="movies" id="movies">
+                    <option value="" disabled selected hidden>Kies je film</option>
+                    <option value="jurassic">Jurassic World</option>
+                    <option value="deadpool">Deadpool</option>
+                </select>
+            </form>
+
+            <form action="">
+                <a class="order-btn" href="bestellen.php">Bestel tickets</a>
+            </form>
         </div>
     </div>
 

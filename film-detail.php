@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <a href="" class="buy-tickets bold">KOOP JE TICKETS</a>
+            <a href="bestellen.php" class="buy-tickets bold">KOOP JE TICKETS</a>
 
             <iframe
                 width="100%"

@@ -19,7 +19,7 @@
         curl_setopt(
             $curl,
             CURLOPT_URL,
-            "https://reqres.in/api/users?page=2"
+            "https://reqres.in/api/users?page=1"
         );
 
         // telling the curl to store the fucking json data in a variable instead of dumping tha STUFF on screen
@@ -53,10 +53,22 @@
                         <p>Email</p>
                         <label for="emailForm"></label>
                         <select name="emailForm" id="emailForm">
+                            <option value="" disabled selected>Select</option>
                             <?php
                             foreach ($movieData['data'] as $data) {
                             ?>
                                 <option value="<?= $data['email'] ?>" required><?= $data['email'] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                        <label for="bwap"></label>
+                        <select name="bwap" id="bwap">
+                            <option value="" disabled selected>Select</option>
+                            <?php
+                            foreach ($movieData['data'] as $data) {
+                            ?>
+                                <option value="<?= $data['id'] ?>" required><?= $data['id'] ?></option>
                             <?php
                             }
                             ?>
@@ -72,46 +84,90 @@
 
             <?php
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $selectedEmail = (string)$_POST['emailForm'];
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null){ 
+                // if ($_POST['emailForm'] != null || $_POST['bwap'] != null) {
+                // if ($_POST['emailForm'] != null){
+                  $selectedEmail = isset($_POST['emailForm']) ? (string)$_POST['emailForm'] : null;
+                // }
+                //initializing variable
+                // if ($_POST['bwap'] != null) {
+                    $selectedId = isset($_POST['bwap']) ? (int)$_POST['bwap'] : null;
+                // }
 
+                //foreach loop to show the thingies
                 foreach ($movieData['data'] as $data) { {
-                        if ($data['email'] == $selectedEmail) {
-                            ?> Selected Email: <?=$data['email']?> 
-                            <br>
-                            Id: <?=$data['id']?>
-                            <br>
-                            Full name: <?=$data['first_name']?> <?=$data['last_name'];?>
-                            <br>
-                            <?php
-                        } ?>
-                        
-                        
-        <?php
+                    //thing for id checking to ward of looping of products
+                        $usageCheckID = false;
+                        if (!empty($selectedEmail) && $data['email'] != null) {
+                            //checking to see if the thing is equal to what we are trying to filter in
+                            if ($data['email'] == $selectedEmail) { ?>
+                                Selected Email: <?= $data['email'] ?>
+                                <br>
+                                <?php if (!empty($selectedID) && $data['id'] == $selectedId) { ?>
+                                    Id: <?= $data['id']; ?>
+                                    <br>
+                                <?php
+                                    $usageCheckID = true;
+                                } else {
+                                ?>
+                                    Id: <?= $data['id'] ?>
+                                    <br>
+                                <?php
+                                }
+                                ?>
+                                Full name: <?= $data['first_name'] ?> <?= $data['last_name']; ?>
+                                <br> <br>
+                                <?php
+                            }
+                        }
+
+                        if (!empty($selectedId) && $data['id'] != null) {
+                            if ($data['id'] == $selectedId) {
+                                if ($usageCheckID != true) {
+                                ?> Selected Email: <?= $data['email'] ?>
+                                    <br>
+                                    Id: <?= $data['id'] ?>
+                                    <br>
+                                    Full name: <?= $data['first_name'] ?> <?= $data['last_name']; ?>
+                                    <br> <br>
+                    <?php
+                                    // echo "No matching results found for [INSERT VALUE HERE, for example now, id].";
+                                    //change the stuff between the brackets to what you're getting,
+                                    //like the genre for the movie or something idk 
+                                }
+                            }
+                        }
                     }
                 }
-            } else if ($_SERVER['REQUEST_METHOD'] != 'POST' || $_POST == null){
-                foreach ($movieData['data'] as $data){
-                  echo $data['email']; ?>
-                  <br>
-                  <?php                    
+            } else if ($_SERVER['REQUEST_METHOD'] != 'POST' || $_POST == null) {
+                foreach ($movieData['data'] as $data) {
+                    ?>
+                    <br>
+                    Selected Email: <?= $data['email'] ?>
+                    <br>
+                    Id: <?= $data['id'] ?>
+                    <br>
+                    Full name: <?= $data['first_name'] ?> <?= $data['last_name']; ?>
+                    <br> <br>
+            <?php
                 }
             }
 
-            foreach($movieData['data'] as $data){
-                ?>
-                <br>
-                <?=$data['id']?>
-                <br>
-                <?=$data['email']?>
-                <br>
-                <?=$data['first_name']?> <?=$data['last_name']?>
-                <br>
-                <br>
-                <?php
-            }
+            // foreach($movieData['data'] as $data){
+            ?>
+            <!--      <br>
+                 <?= $data['id'] ?>
+                 <br>
+                 <?= $data['email'] ?>
+                 <br>
+                 <?= $data['first_name'] ?> <?= $data['last_name'] ?>
+                 <br>
+                 <br> -->
+        <?php
+            // }
 
-            var_dump($movieData);
+            // var_dump($movieData);
+        // }
         }
 
         // Closing tha bitch curl

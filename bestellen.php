@@ -137,6 +137,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="full-step">
+                    <h2 class="steps">STAP 4: VUL JE GEGEVENS IN</h2>
+
+                    <div class="input-fields">
+                        <div class="top-inputs">
+                            <input type="text" class="input" placeholder="Voornaam">
+                            <input type="text" class="input" placeholder="Achternaam*">
+                        </div>
+                        <input type="text" class="input" placeholder="E-mailadres*">
+                        <input type="text" class="input" placeholder="E-mailadres*">
+                    </div>
+                </div>
+
+                <div class="full-step">
+                    <h2 class="steps">STAP 5: KIES JE BETAALWIJZE</h2>
+                </div>
             </div>
 
             <div class="card">
@@ -147,6 +164,10 @@
                     <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
                 </div>
             </div>
+        </div>
+
+        <div class="btn-grid">
+            <a href="" class="pay-btn bold">AFREKENEN</a>
         </div>
     </div>
 

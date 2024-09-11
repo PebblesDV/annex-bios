@@ -62,7 +62,9 @@ session_Start();
                 <?php include "card.php" ?>
             </div>
 
-            <a href="film-agenda.php" class="movies-btn">BEKIJK ALLE FILMS</a>
+            <div class="btn-grid">
+                <a href="film-agenda.php" class="movies-btn">BEKIJK ALLE FILMS</a>
+            </div>
         </div>
 
 

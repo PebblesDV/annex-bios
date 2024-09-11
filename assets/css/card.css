@@ -32,6 +32,7 @@
 }
 
 .card-btn {
+    align-self: center;
     background-color: #399CFF;
     font-size: 14px;
     width: fit-content;

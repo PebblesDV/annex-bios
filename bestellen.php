@@ -45,7 +45,7 @@
         <div class="order-and-info">
             <div class="order">
                 <div class="full-step">
-                    <h2 class="steps">STAP 1: KIES JE TICKET</h2>
+                    <h2 class="steps bold">STAP 1: KIES JE TICKET</h2>
 
                     <div class="pick-tickets">
                         <div class="tickets">
@@ -107,11 +107,11 @@
                 </div>
 
                 <div class="full-step">
-                    <h2 class="steps">STAP 2: KIES JE STOEL</h2>
+                    <h2 class="steps bold">STAP 2: KIES JE STOEL</h2>
                 </div>
 
                 <div class="full-step">
-                    <h2 class="steps">STAP 3: CONTROLEER JE BESTELLING</h2>
+                    <h2 class="steps bold">STAP 3: CONTROLEER JE BESTELLING</h2>
 
                     <div class="overview">
                         <img class="overview-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="full-step">
-                    <h2 class="steps">STAP 4: VUL JE GEGEVENS IN</h2>
+                    <h2 class="steps bold">STAP 4: VUL JE GEGEVENS IN</h2>
 
                     <div class="input-fields">
                         <div class="top-inputs">
@@ -152,7 +152,27 @@
                 </div>
 
                 <div class="full-step">
-                    <h2 class="steps">STAP 5: KIES JE BETAALWIJZE</h2>
+                    <h2 class="steps bold">STAP 5: KIES JE BETAALWIJZE</h2>
+                    <div class="payment">
+                        <div class="method">
+                            <input type="checkbox" id="biosbon" class="payment-btn" name="biosbon" value="Bios bon">
+                            <label for="biosbon">
+                                <img class="payment-img" src="assets/images/betalen/biosbon.png" alt="biosbon">
+                            </label>
+                        </div>
+                        <div class="method">
+                            <input type="checkbox" id="maestro" class="payment-btn" name="maestro" value="Maestro">
+                            <label for="maestro">
+                                <img class="payment-img" src="assets/images/betalen/maestro.png" alt="maestro">
+                            </label>
+                        </div>
+                        <div class="method">
+                            <input type="checkbox" id="ideal" class="payment-btn" name="ideal" value="Ideal">
+                            <label for="ideal">
+                                <img class="payment-img" src="assets/images/betalen/ideal.png" alt="ideal">
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
 

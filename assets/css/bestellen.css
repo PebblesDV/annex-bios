@@ -242,3 +242,30 @@
 .input::placeholder {
     color: rgb(165, 164, 164);
 }
+
+.payment {
+    display: flex;
+    gap: 40px;
+}
+
+.payment-btn {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #399CFF;
+    appearance: none;
+}
+
+.payment-btn:checked {
+    background-color: #399CFF;
+}
+
+.payment-img {
+    height: 40px;
+    width: auto;
+}
+
+.method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

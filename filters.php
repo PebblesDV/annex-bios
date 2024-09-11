@@ -29,9 +29,13 @@
             <input type="checkbox" id="today-btn" class="checkbox-btn" name="vandaag" value="Vandaag">
             <label for="today-btn" class="checkbox-text">VANDAAG</label>
         </div>
-        <div class="checkbox">
-            <p class="checkbox-text">CATEGORIE</p>
-        </div>
+        <select name="category" id="category" class="category-dropdown">
+            <option value="" disabled selected hidden>CATEGORIE</option>
+            <option value="horror">Horror</option>
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="children">Children</option>
+        </select>
     </div>
 
 </body>

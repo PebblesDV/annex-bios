@@ -1,4 +1,6 @@
-<!-- Open session probably and start the sorting of getting the correct movie by which thing you clicked, most likely again with ?= -->
+<!-- Open session probably and start the sorting of getting the correct movie by which thing you clicked, 
+ most likely again with ?= 
+ include the APIconnect.php file here below the session_start()-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +17,18 @@
     <?php include "header.php" ?>
 
     <div class="container movie">
+        <!-- <//?php 
+          if(!empty($_GET['movieId'])){
+
+          $id = $_GET['movieID'];
+
+          foreach($movieAPI['movies'] as $movie){
+            if ($movie['id'] == $id){
+              here you put evreyting that is below here, then its just a question 
+            }
+          }
+            
+          }  -->
         <div class="title">
             <p class="title-text bold">JURASSIC WORLD: FALLEN KINGDOM</p>
         </div>
@@ -81,6 +95,7 @@
                 allowfullscreen></iframe>
 
         </div>
+        <!--End the foreach loop trough the array here-->
     </div>
 
     <?php include "footer.php" ?>

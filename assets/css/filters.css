@@ -13,6 +13,7 @@
 .filters {
     display: flex;
     gap: 5px;
+    width: 50%;
 }
 
 .filter-img {
@@ -43,7 +44,8 @@
     width: fit-content;
     display: flex;
     gap: 5px;
-    padding: 5px;
+    padding-block: 5px;
+    padding-inline: 10px;
 }
 
 .checkbox-text {
@@ -51,5 +53,17 @@
 }
 
 .checkbox-text:hover {
+    cursor: pointer;
+}
+
+.category-dropdown {
+    background-color: white;
+    border: none;
+    color: #399CFF;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.category-dropdown:hover {
     cursor: pointer;
 }

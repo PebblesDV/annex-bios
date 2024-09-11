@@ -1,3 +1,4 @@
+<!-- Open session probably and start the sorting of getting the correct movie by which thing you clicked, most likely again with ?= -->
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,4 @@
+<!-- Open session here probably and immediately start getting the curl -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,14 +34,21 @@
             <form action="">
                 <select class="movie-dropdown" name="movies" id="movies">
                     <option value="" disabled selected hidden>Kies je film</option>
+
+                    <!-- Here start the foreach loop for the thing to show the options -->
+                  
                     <option value="jurassic">Jurassic World: Fallen Kingdom</option>
                     <option value="deadpool">Deadpool 2</option>
                     <option value="pieter">Pieter Konijn</option>
                     <option value="solo">Star Wars: Solo</option>
                 </select>
-            </form>
 
+            <!-- remove /form below -->
+            </form>
+            <!-- remove form action below    -->
             <form action="">
+                <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
+              
                 <a class="order-btn" href="bestellen.php">Bestel tickets</a>
             </form>
         </div>

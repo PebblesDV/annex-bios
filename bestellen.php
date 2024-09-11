@@ -153,24 +153,30 @@
 
                 <div class="full-step">
                     <h2 class="steps bold">STAP 5: KIES JE BETAALWIJZE</h2>
-                    <div class="payment">
-                        <div class="method">
-                            <input type="checkbox" id="biosbon" class="payment-btn" name="biosbon" value="Bios bon">
-                            <label for="biosbon">
-                                <img class="payment-img" src="assets/images/betalen/biosbon.png" alt="biosbon">
-                            </label>
+                    <div class="payment-terms">
+                        <div class="payment">
+                            <div class="method">
+                                <input type="checkbox" id="biosbon" class="payment-btn" name="biosbon" value="Bios bon">
+                                <label for="biosbon">
+                                    <img class="payment-img" src="assets/images/betalen/biosbon.png" alt="biosbon">
+                                </label>
+                            </div>
+                            <div class="method">
+                                <input type="checkbox" id="maestro" class="payment-btn" name="maestro" value="Maestro">
+                                <label for="maestro">
+                                    <img class="payment-img" src="assets/images/betalen/maestro.png" alt="maestro">
+                                </label>
+                            </div>
+                            <div class="method">
+                                <input type="checkbox" id="ideal" class="payment-btn" name="ideal" value="Ideal">
+                                <label for="ideal">
+                                    <img class="payment-img" src="assets/images/betalen/ideal.png" alt="ideal">
+                                </label>
+                            </div>
                         </div>
-                        <div class="method">
-                            <input type="checkbox" id="maestro" class="payment-btn" name="maestro" value="Maestro">
-                            <label for="maestro">
-                                <img class="payment-img" src="assets/images/betalen/maestro.png" alt="maestro">
-                            </label>
-                        </div>
-                        <div class="method">
-                            <input type="checkbox" id="ideal" class="payment-btn" name="ideal" value="Ideal">
-                            <label for="ideal">
-                                <img class="payment-img" src="assets/images/betalen/ideal.png" alt="ideal">
-                            </label>
+                        <div class="terms-of-use">
+                            <input type="checkbox" id="terms" class="payment-btn" name="terms" value="terms">
+                            <label class="terms-text" for="terms">Ja, ik ga akkoord met de <span style="text-decoration:underline;color:rgb(107,107,107)">algemene voorwaarden</span>.</label>
                         </div>
                     </div>
                 </div>

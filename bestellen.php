@@ -44,55 +44,48 @@
 
         <div class="order-and-info">
             <div class="order">
+
                 <div class="full-step">
                     <h2 class="steps bold">STAP 1: KIES JE TICKET</h2>
 
                     <div class="pick-tickets">
                         <div class="tickets">
-                            <p class="order-text">TYPE</p>
-                            <div class="price-amount-text">
-                                <p class="order-text">PRIJS</p>
-                                <p class="order-text">AANTAL</p>
-                            </div>
+                            <p class="order-text col-1">TYPE</p>
+                            <p class="order-text col-6">PRIJS</p>
+                            <p class="order-text col-7">AANTAL</p>
                         </div>
 
                         <div class="border"></div>
 
-                        <div class="type-price-amount">
-                            <div class="type column">
-                                <p class="order-text">Normaal</p>
-                                <p class="order-text">Kind t/m 11 jaar</p>
-                                <p class="order-text">65 +</p>
-                            </div>
-
-                            <div class="price-and-amount">
-                                <div class="price column">
-                                    <p class="order-text">€9,00</p>
-                                    <p class="order-text">€5,00</p>
-                                    <p class="order-text">€7,00</p>
-                                </div>
-
-                                <div class="amount column">
-                                    <select class="amount-dropdown" name="normaal" id="normaal">
-                                        <option value="0" selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                    <select class="amount-dropdown" name="kind" id="kind">
-                                        <option value="0" selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                    <select class="amount-dropdown" name="65" id="65">
-                                        <option value="0" selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="tickets">
+                            <p class="order-text col-1">NORMAAL</p>
+                            <p class="order-text col-6">€9,00</p>
+                            <select class="amount-dropdown" name="normaal" id="normaal">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="tickets">
+                            <p class="order-text col-1">Kind t/m 11 jaar</p>
+                            <p class="order-text col-6">€5,00</p>
+                            <select class="amount-dropdown" name="kind" id="kind">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="tickets">
+                            <p class="order-text col-1">65+</p>
+                            <p class="order-text col-6">€7,00</p>
+                            <select class="amount-dropdown" name="65" id="65">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                         </div>
 
                         <div class="border"></div>
@@ -102,7 +95,6 @@
                             <input class="code-input" type="text" placeholder="Code">
                             <a class="add-btn" href="">TOEVOEGEN</a>
                         </div>
-
                     </div>
                 </div>
 

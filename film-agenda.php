@@ -1,3 +1,9 @@
+<?php
+session_Start();
+
+include_once('APIconnect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +25,7 @@
         </div>
 
         <div class="selection-bottom">
-            <?php include "card.php" ?>
+            <?php $lessMovies = false; include "card.php" ?>
         </div>
     </div>
 

@@ -1,5 +1,7 @@
 <?php
 session_Start();
+
+include_once "APIconnect.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +61,7 @@ session_Start();
             </div>
 
             <div class="selection-bottom">
-                <?php include "card.php" ?>
+                <?php $lessMovies = true; include "card.php" ?>
             </div>
 
             <div class="btn-grid">

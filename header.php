@@ -36,20 +36,23 @@
 
                 <!-- Here start the foreach loop for the thing to show the options -->
 
-                <option value="jurassic">Jurassic World: Fallen Kingdom</option>
-                <option value="deadpool">Deadpool 2</option>
-                <option value="pieter">Pieter Konijn</option>
-                <option value="solo">Star Wars: Solo</option>
-            </select>
+                     <?php
+                       foreach($movieAPI['data'] as $data){
+                        //change $data['email'] to $data['movieName']
+                        ?>
+                    <option value="<?=$data['id']?>">open php $data['movieName'] close php</option> 
+                    <?php                    
+                      }
+                     ?>
+                </select>
 
-            <!-- remove /form below -->
-        </form>
-        <!-- remove form action below    -->
-        <form action="">
-            <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
-
-            <a class="order-btn" href="bestellen.php">Bestel tickets</a>
-        </form>
+                <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
+              
+                <!-- <input type="submit" value="bestel Tickets"> -->
+                  <a class="order-btn" href="bestellen.php">Bestel tickets</a>
+                <!-- </input> -->
+            </form>
+        </div>
     </div>
 
 </body>

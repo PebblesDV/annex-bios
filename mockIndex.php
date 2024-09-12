@@ -11,87 +11,21 @@
     <div class=container>
 
         <?php
+        include_once('APIconnect.php');
 
-        // Initializeer de curl
-        $curl = curl_init();
-
-        // Sending GET request to API server to get the json data
-        curl_setopt(
-            $curl,
-            CURLOPT_URL,
-            "https://reqres.in/api/users?page=1"
-        );
-
-        // telling the curl to store the fucking json data in a variable instead of dumping tha STUFF on screen
-        curl_setopt(
-            $curl,
-            CURLOPT_RETURNTRANSFER,
-            true
-        );
-
-        // Executing the curl and its entire family to make it pay for the sins it has commited
-        $executedCURL = curl_exec($curl);
-
-        // Checks for errors teehee :3
-        if ($e = curl_error($curl)) {
-            echo $e;
-        } else {
-
-            // Decoding json data OwO
-            $movieData =
-                json_decode($executedCURL, true);
-
-            // Doing json data in the correct form
-            // var_dump($movieData);
-
-            //foreach if its an array, just echo $variableName['thingUwantHere, for example 'id']; if its 1 singular data point
-
-        //for when the real api gets launched
-        // Initializeer de curl
-        $curl2 = curl_init();
-
-        // Sending GET request to API server to get the json data
-        curl_setopt(
-            $curl2,
-            CURLOPT_URL,
-            //chahnge line to given api
-            "https://reqres.in/api/users?page=1"
-        );
-
-        // telling the curl to store the fucking json data in a variable instead of dumping tha STUFF on screen
-        curl_setopt(
-            $curl2,
-            CURLOPT_RETURNTRANSFER,
-            true
-        );
-
-        // Executing the curl and its entire family to make it pay for the sins it has commited
-        $executedCURL2 = curl_exec($curl2);
-
-        // Checks for errors teehee :3
-        if ($a = curl_error($curl2)) {
-            echo $a;
-        } else {
-
-            // Decoding json data OwO
-            $movieAPI =
-                json_decode($executedCURL2, true);
-
-            // Doing json data in the correct form
-            // var_dump($movieAPI);
         ?>
 
             <div class="filterForm">
                 <form method="POST">
                     <div>
                         <p>Email</p>
-                        <label for="emailForm"></label>
-                        <select name="emailForm" id="emailForm">
+                        <label for="titleForm"></label>
+                        <select name="titleForm" id="titleForm">
                             <option value="" disabled selected>Select</option>
                             <?php
                             foreach ($movieData['data'] as $data) {
                             ?>
-                                <option value="<?= $data['email'] ?>" required><?= $data['email'] ?></option>
+                                <option value="<?= $data['title'] ?>" required><?= $data['title'] ?></option>
                             <?php
                             }
                             ?>
@@ -102,7 +36,7 @@
                             <?php
                             foreach ($movieData['data'] as $data) {
                             ?>
-                                <option value="<?= $data['id'] ?>" required><?= $data['id'] ?></option>
+                                <option value="<?= $data['release_date'] ?>" required><?= $data['release_date'] ?></option>
                             <?php
                             }
                             ?>
@@ -121,7 +55,7 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null){ 
                 // if ($_POST['emailForm'] != null || $_POST['bwap'] != null) {
                 // if ($_POST['emailForm'] != null){
-                  $selectedEmail = isset($_POST['emailForm']) ? (string)$_POST['emailForm'] : null;
+                  $selectedTitle = isset($_POST['titleForm']) ? (string)$_POST['titleForm'] : null;
                 // }
                 //initializing variable
                 // if ($_POST['bwap'] != null) {
@@ -132,7 +66,7 @@
                 foreach ($movieData['data'] as $data) { {
                     //thing for id checking to ward of looping of products
                         $usageCheckID = false;
-                        if (!empty($selectedEmail) && $data['email'] != null) {
+                        if (!empty($selectedTitle) && $data['email'] != null) {
                             //checking to see if the thing is equal to what we are trying to filter in
                             if ($data['email'] == $selectedEmail) { ?>
                                 Selected Email: <?= $data['email'] ?>
@@ -177,7 +111,7 @@
                 foreach ($movieData['data'] as $data) {
                     ?>
                     <br>
-                    Selected Email: <?= $data['email'] ?>
+                    Selected Email: <?= $data['title'] ?>
                     <br>
                     Id: <?= $data['id'] ?>
                     <br>
@@ -198,20 +132,6 @@
                  <br>
                  <br> -->
         <?php
-            // }
-
-            // var_dump($movieData);
-        // }
-        }
-    }
-
-        // Closing tha bitch curl
-        curl_close($curl);
-        curl_close($curl2);
-
-
-        // $bwapbwapbwap = '{"Peter":35,"Ben":2,"Optimus Prime":1030}';
-        // var_dump(json_decode($bwapbwapbwap));
         ?>
     </div>
 </body>

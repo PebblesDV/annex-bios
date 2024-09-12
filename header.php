@@ -17,25 +17,25 @@
 
 <body>
 
-    <div class="header">
-        <div class="header-top container">
-            <a class="logo-link" href="index.php">
-                <img class="logo" src="assets/images/logo/logo.png" alt="logo">
-            </a>
-            <div class="header-links">
-                <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
-                <a class="page-link" href="">ALLE VESTIGINGEN</a>
-                <a class="page-link" href="">CONTACT</a>
-            </div>
+    <div class="header-top container">
+        <a class="logo-link" href="index.php">
+            <img class="logo" src="assets/images/logo/logo.png" alt="logo">
+        </a>
+        <div class="header-links">
+            <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
+            <a class="page-link" href="">ALLE VESTIGINGEN</a>
+            <a class="page-link" href="">CONTACT</a>
         </div>
-        <div class="header-bottom container">
-            <p>KOOP JE TICKETS</p>
+    </div>
+    <div class="header-bottom container">
+        <p>KOOP JE TICKETS</p>
 
-            <form action="">
-                <select class="movie-dropdown" name="movies" id="movies">
-                    <option value="" disabled selected hidden>Kies je film</option>
+        <form action="">
+            <select class="movie-dropdown" name="movies" id="movies">
+                <option value="" disabled selected hidden>Kies je film</option>
 
-                    <!-- Here start the foreach loop for the thing to show the options -->
+                <!-- Here start the foreach loop for the thing to show the options -->
+
                      <?php
                        foreach($movieAPI['data'] as $data){
                         //change $data['email'] to $data['movieName']

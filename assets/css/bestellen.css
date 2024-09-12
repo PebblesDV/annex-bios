@@ -77,13 +77,21 @@
 }
 
 .tickets {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
 }
 
-.price-amount-text {
-    display: flex;
-    gap: 100px;
+.col-1 {
+    grid-column: 1 / 2;
+}
+
+.col-6 {
+    grid-column: 5 / 5;
+}
+
+.col-7 {
+    grid-column: 6 / 6;
 }
 
 .pick-tickets {
@@ -92,27 +100,17 @@
     gap: 10px;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .amount-dropdown {
     color: rgb(107, 107, 107);
     border: 1px solid #399CFF;
     width: fit-content;
+    height: fit-content;
     padding-inline: 5px;
+    place-self: center;
 }
 
-.price-and-amount {
-    display: flex;
-    gap: 100px;
-}
-
-.type-price-amount {
-    display: flex;
-    justify-content: space-between;
+.center {
+    text-align: center;
 }
 
 .code-and-btn {
@@ -226,8 +224,9 @@
 }
 
 .top-inputs {
-    display: flex;
-    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
 }
 
 .input {

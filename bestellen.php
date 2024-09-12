@@ -51,15 +51,15 @@
                     <div class="pick-tickets">
                         <div class="tickets">
                             <p class="order-text col-1">TYPE</p>
-                            <p class="order-text col-6">PRIJS</p>
-                            <p class="order-text col-7">AANTAL</p>
+                            <p class="order-text col-6 center">PRIJS</p>
+                            <p class="order-text col-7 center">AANTAL</p>
                         </div>
 
                         <div class="border"></div>
 
                         <div class="tickets">
                             <p class="order-text col-1">NORMAAL</p>
-                            <p class="order-text col-6">€9,00</p>
+                            <p class="order-text col-6 center">€9,00</p>
                             <select class="amount-dropdown" name="normaal" id="normaal">
                                 <option value="0" selected>0</option>
                                 <option value="1">1</option>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="tickets">
                             <p class="order-text col-1">Kind t/m 11 jaar</p>
-                            <p class="order-text col-6">€5,00</p>
+                            <p class="order-text col-6 center">€5,00</p>
                             <select class="amount-dropdown" name="kind" id="kind">
                                 <option value="0" selected>0</option>
                                 <option value="1">1</option>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="tickets">
                             <p class="order-text col-1">65+</p>
-                            <p class="order-text col-6">€7,00</p>
+                            <p class="order-text col-6 center">€7,00</p>
                             <select class="amount-dropdown" name="65" id="65">
                                 <option value="0" selected>0</option>
                                 <option value="1">1</option>
@@ -135,8 +135,8 @@
 
                     <div class="input-fields">
                         <div class="top-inputs">
-                            <input type="text" class="input" placeholder="Voornaam">
-                            <input type="text" class="input" placeholder="Achternaam*">
+                            <input type="text" class="input big" placeholder="Voornaam">
+                            <input type="text" class="input big" placeholder="Achternaam*">
                         </div>
                         <input type="text" class="input" placeholder="E-mailadres*">
                         <input type="text" class="input" placeholder="E-mailadres*">

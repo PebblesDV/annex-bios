@@ -17,41 +17,39 @@
 
 <body>
 
-    <div class="header">
-        <div class="header-top container">
-            <a class="logo-link" href="index.php">
-                <img class="logo" src="assets/images/logo/logo.png" alt="logo">
-            </a>
-            <div class="header-links">
-                <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
-                <a class="page-link" href="">ALLE VESTIGINGEN</a>
-                <a class="page-link" href="">CONTACT</a>
-            </div>
+    <div class="header-top container">
+        <a class="logo-link" href="index.php">
+            <img class="logo" src="assets/images/logo/logo.png" alt="logo">
+        </a>
+        <div class="header-links">
+            <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
+            <a class="page-link" href="">ALLE VESTIGINGEN</a>
+            <a class="page-link" href="">CONTACT</a>
         </div>
-        <div class="header-bottom container">
-            <p>KOOP JE TICKETS</p>
+    </div>
+    <div class="header-bottom container">
+        <p>KOOP JE TICKETS</p>
 
-            <form action="">
-                <select class="movie-dropdown" name="movies" id="movies">
-                    <option value="" disabled selected hidden>Kies je film</option>
+        <form action="">
+            <select class="movie-dropdown" name="movies" id="movies">
+                <option value="" disabled selected hidden>Kies je film</option>
 
-                    <!-- Here start the foreach loop for the thing to show the options -->
-                  
-                    <option value="jurassic">Jurassic World: Fallen Kingdom</option>
-                    <option value="deadpool">Deadpool 2</option>
-                    <option value="pieter">Pieter Konijn</option>
-                    <option value="solo">Star Wars: Solo</option>
-                </select>
+                <!-- Here start the foreach loop for the thing to show the options -->
+
+                <option value="jurassic">Jurassic World: Fallen Kingdom</option>
+                <option value="deadpool">Deadpool 2</option>
+                <option value="pieter">Pieter Konijn</option>
+                <option value="solo">Star Wars: Solo</option>
+            </select>
 
             <!-- remove /form below -->
-            </form>
-            <!-- remove form action below    -->
-            <form action="">
-                <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
-              
-                <a class="order-btn" href="bestellen.php">Bestel tickets</a>
-            </form>
-        </div>
+        </form>
+        <!-- remove form action below    -->
+        <form action="">
+            <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
+
+            <a class="order-btn" href="bestellen.php">Bestel tickets</a>
+        </form>
     </div>
 
 </body>

@@ -1,36 +1,39 @@
 <?php
-//INCLUDE THIS FILE WHEN YOU NEED TO DO AANNYTHING WITH THE API
-//for when the real api gets launched
-// Initializeer de curl
-$curl2 = curl_init();
+        // Initialize curl
+        $curl = curl_init();
 
-// Sending GET request to API server to get the json data
-curl_setopt(
-    $curl2,
-    CURLOPT_URL,
-    //chahnge line to given api
-    "https://reqres.in/api/users?page=1"
-);
+        // Sending GET request to API server to get the json data
+        curl_setopt(
+            $curl,
+            CURLOPT_URL,
+            "https://u231195.gluwebsite.nl/api/v1/movieData"
+        );
 
-// telling the curl to store the fucking json data in a variable instead of dumping tha STUFF on screen
-curl_setopt(
-    $curl2,
-    CURLOPT_RETURNTRANSFER,
-    true
-);
 
-// Executing the curl and its entire family to make it pay for the sins it has commited
-$executedCURL2 = curl_exec($curl2);
+        // Tell curl to return data instead of outputting it
+        $token = '0846816a0159843d9760b0f09ca8baf990dad297a07ab223d0a34068b5c6f8f2'; // Replace with your actual token
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Authorization: Bearer ' . $token
+        ));
 
-// Checks for errors teehee :3
-if ($a = curl_error($curl2)) {
-    echo $a;
-} else {
+        // Disable SSL verification (for development only)
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
-    // Decoding json data OwO
-    $movieAPI =
-        json_decode($executedCURL2, true);
+        // telling that ho to return the data 
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-    // Doing json data in the correct form
-    // var_dump($movieAPI);
-}
+        // Execute curl
+        $executedCURL = curl_exec($curl);
+
+        // Error checking
+        if ($e = curl_error($curl)) {
+            echo $e;
+        } else {
+            // Decode json data
+            $movieData = json_decode($executedCURL, true);
+
+        }
+        // var_dump($movieData);
+        curl_close($curl);
+
+        ?>

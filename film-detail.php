@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+include_once "APIconnect.php";
+
+?>
 <!-- Open session probably and start the sorting of getting the correct movie by which thing you clicked, 
  most likely again with ?= 
  include the APIconnect.php file here below the session_start()-->
@@ -17,84 +24,104 @@
     <?php include "header.php" ?>
 
     <div class="container movie">
-        <!-- <//?php 
-          if(!empty($_GET['movieId'])){
+        <?php
+        if(!empty($_GET['id'])) {
 
-          $id = $_GET['movieID'];
+            $id = $_GET['id'];
 
-          foreach($movieAPI['movies'] as $movie){
-            if ($movie['id'] == $id){
-              here you put evreyting that is below here, then its just a question 
-            }
-          }
-            
-          }  -->
-        <div class="title">
-            <p class="title-text bold">JURASSIC WORLD: FALLEN KINGDOM</p>
-        </div>
+            foreach ($movieData['data'] as $data) {
+                if ($data['imdb_id'] == $id) {
+                    //here you put evreyting that is below here, then its just a question 
+        ?>
 
-        <div class="info-and-order">
-            <div class="img-and-info">
-                <img class="movie-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
-
-                <div class="movie-info">
-                    <div class="view-icons">
-                        <img class="v-icon" src="assets/images/kijkwijzers/kijkwijzer-12.png" alt="12">
-                        <img class="v-icon" src="assets/images/kijkwijzers/kijkwijzer-eng.png" alt="scary">
-                        <img class="v-icon" src="assets/images/kijkwijzers/kijkwijzer-geweld.png" alt="violent">
+                    <div class="title">
+                        <p class="title-text bold"><?=$data['title']?></p>
                     </div>
 
-                    <p class="text">Release: 15-09-2002</p>
-                    <p class="movie-text text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
+                    <div class="info-and-order">
+                        <div class="img-and-info">
+                            <img class="movie-img" src="<?=$data['image']?>" alt="movie">
 
-                    <div class="movie-details">
-                        <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> Actie</p>
-                        <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Filmlengte:</span> 128 minutes</p>
-                        <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Land:</span> USA</p>
-                        <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Imdb score:</span> 8.3/10</p>
-                        <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Regisseur:</span> Juan Antonio Bayona</p>
-                        <div class="actors">
-                            <p class="movie-text text bold">Acteurs:</p>
-                            <div class="all-actors">
-                                <div>
-                                    <img class="actor-img" src="assets/images/acteurs/BryceDallas.jpg" alt="bryce">
-                                    <p class="movie-text text">Bryce Dallas Howard</p>
+                            <div class="movie-info">
+                                <div class="view-icons">
+                                    <?php
+                                      foreach($data['viewing_guides'] as $view_guide){
+                                        foreach($view_guide['symbols'] as $guide){
+
+                                        ?>
+                                    <img class="v-icon" src="<?=$guide['image']?>" alt="<?=$guide['name']?>"> 
+                                    <?php
+                                      }
+                                    }
+                                    ?>
                                 </div>
 
-                                <div>
-                                    <img class="actor-img" src="assets/images/acteurs/Chris_Pratt.jpg" alt="chris">
-                                    <p class="movie-text text">Chris Pratt</p>
-                                </div>
+                                <p class="text">Release: <?=$data['release_date']?></p>
+                                <p class="movie-text text"><?=$data['description']?></p>
 
-                                <div>
-                                    <img class="actor-img" src="assets/images/acteurs/rafe_spall.jpg" alt="rafe">
-                                    <p class="movie-text text">Rafe Spall</p>
-                                </div>
-
-                                <div>
-                                    <img class="actor-img" src="assets/images/acteurs/Toby_Jones.jpg" alt="toby">
-                                    <p class="movie-text text">Toby Jones</p>
+                                <div class="movie-details">
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> <?php 
+                                     foreach($data['viewing_guides'] as $view_guide){
+                                        foreach($view_guide['symbols'] as $guide){
+                                            if(count($guide) > 1) { 
+                                                echo $guide['name'].' ';
+                                            } else {
+                                                $guide['name'];
+                                            }
+                                        }
+                                    }
+                                    ?></p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Filmlengte:</span> <?=$data['length']?> min</p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Land:</span> USA</p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Imdb score:</span> <?=$data['rating']?>/10</p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Regisseur:</span> 
+                                    <?php
+                                    foreach($data['directors'] as $director){
+                                                echo $director['name'].' ';
+                                        
+                                    }
+                                    ?>
+                                </p>
+                                    <div class="actors">
+                                        <p class="movie-text text bold">Acteurs:</p>
+                                        <div class="all-actors">
+                                            <?php
+                                              foreach($data['actors'] as $actors){
+                                            ?>
+                                            <div>
+                                                <img class="actor-img" src="<?=$actors['image']?>" alt="actor">
+                                                <p class="movie-text text"><?=$actors['name']?></p>
+                                            </div>
+                                            <?php
+                                              }
+                                            ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <a href="bestellen.php" class="buy-tickets bold">KOOP JE TICKETS</a>
+
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src="<?=$data['trailer_link']?>"
+                            class="trailer"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+
                     </div>
-                </div>
-            </div>
-
-            <a href="bestellen.php" class="buy-tickets bold">KOOP JE TICKETS</a>
-
-            <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/vn9mMeWcgoM?si=k9N5oIjBh5Y7RM1w"
-                class="trailer"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-
-        </div>
+        <?php
+                }
+            }
+        } else {
+            echo 'GET empty.';
+        }
+        ?>
         <!--End the foreach loop trough the array here-->
     </div>
 

@@ -1,4 +1,8 @@
-<!-- Open session here probably and immediately start getting the curl -->
+<?
+session_Start();
+
+include_once('APIconnect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,10 +41,10 @@
                 <!-- Here start the foreach loop for the thing to show the options -->
 
                      <?php
-                       foreach($movieAPI['data'] as $data){
+                       foreach($movieData['data'] as $data){
                         //change $data['email'] to $data['movieName']
                         ?>
-                    <option value="<?=$data['id']?>">open php $data['movieName'] close php</option> 
+                    <option value="<?=$data['imdb_id']?>"><?=$data['title']?></option> 
                     <?php                    
                       }
                      ?>

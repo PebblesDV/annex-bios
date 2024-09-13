@@ -89,7 +89,12 @@ include_once "APIconnect.php";
                                               foreach($data['actors'] as $actors){
                                             ?>
                                             <div>
-                                                <img class="actor-img" src="<?=$actors['image']?>" alt="actor">
+                                                <img class="actor-img" src="<?php 
+                                                  if ($actors['image'] == null){
+                                                     echo 'https://www.pathe.nl/assets/img/placeholder/placeholder-03.png';
+                                                    } else {
+                                                      echo $actors['image'];
+                                                    }?>" alt="actor">
                                                 <p class="movie-text text"><?=$actors['name']?></p>
                                             </div>
                                             <?php
@@ -101,7 +106,7 @@ include_once "APIconnect.php";
                             </div>
                         </div>
 
-                        <a href="bestellen.php" class="buy-tickets bold">KOOP JE TICKETS</a>
+                        <a href="bestellen.php?id=<?=$data['imdb_id']?>" class="buy-tickets bold">KOOP JE TICKETS</a>
 
                         <iframe
                             width="100%"

@@ -21,13 +21,22 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
     <?php
 
     $i = 0;
-    
-      foreach($movieData['data'] as $data){
-        if($lessMovies && $i >=6){
-            break;
-        }
 
-        $i++;
+    
+    //   foreach($playingMovieData['data'] as $playingMovieData){
+    //     echo $playingMovieData['movie_id'];
+        foreach($movieData['data'] as $data){
+          if($lessMovies && $i >=6){
+              break;
+          }        
+        
+          $i++;
+
+        //   if($data['api_id'] == $dataPlayingMovies['location_movie_id']){
+            //load in movies
+
+
+
         ?>
         <div class="card">
             <img class="card-img" src="<?=$data['image']?>" alt="movie">
@@ -41,7 +50,9 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
                 <a href="film-detail.php?id=<?=$data['imdb_id']?>" class="card-btn">MEER INFO & TICKETS</a>
             </div>
         </div>   
-        <?php     
+        <?php    
+                //   }
+                // } 
 
         }
       ?>

@@ -34,28 +34,26 @@ include_once('APIconnect.php');
     <div class="header-bottom container">
         <p>KOOP JE TICKETS</p>
 
-        <form action="">
-            <select class="movie-dropdown" name="movies" id="movies">
-                <option value="" disabled selected hidden>Kies je film</option>
+        <form  action="bestellen.php" method="post">
+            <select class="movie-dropdown" name="movie" id="movies_id">
+                <option value="" disabled selected hidden required>Kies je film</option>
 
                 <!-- Here start the foreach loop for the thing to show the options -->
-
                      <?php
                        foreach($movieData['data'] as $data){
-                        //change $data['email'] to $data['movieName']
                         ?>
-                    <option value="<?=$data['imdb_id']?>"><?=$data['title']?></option> 
+                    <option value="<?=$data['imdb_id']?>" required><?=$data['title']?></option> 
                     <?php                    
                       }
                      ?>
-                </select>
-
+            </select>
+        
                 <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
               
                 <!-- <input type="submit" value="bestel Tickets"> -->
-                  <a class="order-btn" href="bestellen.php">Bestel tickets</a>
+                  <button type="submit" class="order-btn" style="border:none;">Bestel tickets</button>
                 <!-- </input> -->
-            </form>
+        </form>    
         </div>
     </div>
 

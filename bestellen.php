@@ -1,3 +1,26 @@
+<?php
+session_start();
+
+include_once('APIconnect.php');
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null){
+
+    // $selectedMovie = $_POST['movies_id'];    
+    //   if(!empty($selectedMovie)){
+    //     //do all the shit to get it
+    //     echo $selectedMovie;
+    //   } else {
+    //     //give error
+    //     echo 'No given id';
+    //   }
+} else {
+    //check the thing for the thing if u got it from index instead of the header
+//    echo 'No post found.'; 
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

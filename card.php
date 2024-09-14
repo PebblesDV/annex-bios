@@ -31,11 +31,13 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
         ?>
             <div class="card">
                 <img class="card-img" src="<?= $data['image'] ?>" alt="movie">
-                <div class="card-info">
+                <div class="info-and-btn">
                     <!-- change the things here to all the apropriate variables you have given earlier -->
-                    <h2 class="text"><?= $data['title'] ?></h2>
-                    <p class="text phone-text">Release: <?= $data['release_date'] ?></p>
-                    <p class="movie-info text"><?= $data['description'] ?></p>
+                    <div class="card-info">
+                        <h2 class="text"><?= $data['title'] ?></h2>
+                        <p class="text phone-text">Release: <?= $data['release_date'] ?></p>
+                        <p class="movie-info text"><?= $data['description'] ?></p>
+                    </div>
                     <!-- plaats dit hier in plaats van de odnerste href
                 <a href="film-detail.php?id=<//?php //$variableNameApiData['movieId'] ?>" change <//?php to <//?= -->
                     <a href="film-detail.php?id=<?= $data['imdb_id'] ?>" class="card-btn">MEER INFO & TICKETS</a>

@@ -25,7 +25,7 @@ include_once "APIconnect.php";
 
     <div class="container movie">
         <?php
-        if(!empty($_GET['id'])) {
+        if (!empty($_GET['id'])) {
 
             $id = $_GET['id'];
 
@@ -35,70 +35,69 @@ include_once "APIconnect.php";
         ?>
 
                     <div class="title">
-                        <p class="title-text bold"><?=$data['title']?></p>
+                        <p class="title-text bold"><?= $data['title'] ?></p>
                     </div>
 
                     <div class="info-and-order">
                         <div class="img-and-info">
-                            <img class="movie-img" src="<?=$data['image']?>" alt="movie">
+                            <img class="movie-img" src="<?= $data['image'] ?>" alt="movie">
 
                             <div class="movie-info">
                                 <div class="view-icons">
                                     <?php
-                                      foreach($data['viewing_guides'] as $view_guide){
-                                        foreach($view_guide['symbols'] as $guide){
+                                    foreach ($data['viewing_guides'] as $view_guide) {
+                                        foreach ($view_guide['symbols'] as $guide) {
 
-                                        ?>
-                                    <img class="v-icon" src="<?=$guide['image']?>" alt="<?=$guide['name']?>"> 
+                                    ?>
+                                            <img class="v-icon" src="<?= $guide['image'] ?>" alt="<?= $guide['name'] ?>">
                                     <?php
-                                      }
+                                        }
                                     }
                                     ?>
                                 </div>
 
-                                <p class="text">Release: <?=$data['release_date']?></p>
-                                <p class="movie-text text"><?=$data['description']?></p>
+                                <p class="text">Release: <?= $data['release_date'] ?></p>
+                                <p class="movie-text text"><?= $data['description'] ?></p>
 
                                 <div class="movie-details">
-                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> <?php 
-                                     foreach($data['viewing_guides'] as $view_guide){
-                                        foreach($view_guide['symbols'] as $guide){
-                                            if(count($guide) > 1) { 
-                                                echo $guide['name'].' ';
-                                            } else {
-                                                $guide['name'];
-                                            }
-                                        }
-                                    }
-                                    ?></p>
-                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Filmlengte:</span> <?=$data['length']?> min</p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> <?php
+                                                                                                                                    foreach ($data['viewing_guides'] as $view_guide) {
+                                                                                                                                        foreach ($view_guide['symbols'] as $guide) {
+                                                                                                                                            if (count($guide) > 1) {
+                                                                                                                                                echo $guide['name'] . ' ';
+                                                                                                                                            } else {
+                                                                                                                                                $guide['name'];
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                    ?></p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Filmlengte:</span> <?= $data['length'] ?> min</p>
                                     <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Land:</span> USA</p>
-                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Imdb score:</span> <?=$data['rating']?>/10</p>
-                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Regisseur:</span> 
-                                    <?php
-                                    foreach($data['directors'] as $director){
-                                                echo $director['name'].' ';
-                                        
-                                    }
-                                    ?>
-                                </p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Imdb score:</span> <?= $data['rating'] ?>/10</p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Regisseur:</span>
+                                        <?php
+                                        foreach ($data['directors'] as $director) {
+                                            echo $director['name'] . ' ';
+                                        }
+                                        ?>
+                                    </p>
                                     <div class="actors">
                                         <p class="movie-text text bold">Acteurs:</p>
                                         <div class="all-actors">
                                             <?php
-                                              foreach($data['actors'] as $actors){
+                                            foreach ($data['actors'] as $actors) {
                                             ?>
-                                            <div>
-                                                <img class="actor-img" src="<?php 
-                                                  if ($actors['image'] == null){
-                                                     echo 'https://www.pathe.nl/assets/img/placeholder/placeholder-03.png';
-                                                    } else {
-                                                      echo $actors['image'];
-                                                    }?>" alt="actor">
-                                                <p class="movie-text text"><?=$actors['name']?></p>
-                                            </div>
+                                                <div>
+                                                    <img class="actor-img" src="<?php
+                                                                                if ($actors['image'] == null) {
+                                                                                    echo 'https://www.pathe.nl/assets/img/placeholder/placeholder-03.png';
+                                                                                } else {
+                                                                                    echo $actors['image'];
+                                                                                } ?>" alt="actor">
+                                                    <p class="movie-text text"><?= $actors['name'] ?></p>
+                                                </div>
                                             <?php
-                                              }
+                                            }
                                             ?>
                                         </div>
                                     </div>
@@ -106,12 +105,12 @@ include_once "APIconnect.php";
                             </div>
                         </div>
 
-                        <a href="bestellen.php?id=<?=$data['imdb_id']?>" class="buy-tickets bold">KOOP JE TICKETS</a>
+                        <a href="bestellen.php?id=<?= $data['imdb_id'] ?>" class="buy-tickets bold">KOOP JE TICKETS</a>
 
                         <iframe
                             width="100%"
                             height="100%"
-                            src="<?=$data['trailer_link']?>"
+                            src="<?= $data['trailer_link'] ?>"
                             class="trailer"
                             title="YouTube video player"
                             frameborder="0"

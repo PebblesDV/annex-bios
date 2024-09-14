@@ -22,3 +22,94 @@ body {
     font-weight: 700;
     font-style: normal;
 }
+
+@media screen and (max-width: 750px) {
+    .container {
+        padding-inline: 20px;
+    }
+
+    .all-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .homepage {
+        margin-block: 50px;
+        gap: 50px;
+    }
+
+    .welcome-text {
+        width: 100%;
+    }
+
+    .map-and-contact {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .left-content {
+        width: 100%;
+    }
+
+    .right-content {
+        width: 100%;
+    }
+
+    .welcome-and-map {
+        gap: 30px;
+    }
+
+    .selection-header {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .top-left {
+        width: 100%;
+    }
+
+    .top-middle {
+        width: 100%;
+    }
+
+    .top-right {
+        width: 100%;
+    }
+
+    .footer-top {
+        gap: 50px;
+        padding-block: 30px;
+    }
+
+    .footer-nav {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        align-items: center;
+    }
+
+    .card-img {
+        height: 250px;
+    }
+
+    .all-cards {
+        grid-row-gap: 20px;
+    }
+
+    .phone-text {
+        font-size: 14px;
+    }
+}

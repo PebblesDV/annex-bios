@@ -6,7 +6,7 @@
         curl_setopt(
             $curl,
             CURLOPT_URL,
-            "https://u231195.gluwebsite.nl/api/v1/movieData"
+            "https://annexbios.nickvz.nl/api/v1/movieData"
         );
 
 
@@ -43,7 +43,7 @@
         curl_setopt(
             $curl2,
             CURLOPT_URL,
-            "https://u231195.gluwebsite.nl/api/v1/playingMovies"
+            "https://annexbios.nickvz.nl/api/v1/playingMovies"
         );
 
 
@@ -60,16 +60,17 @@
         curl_setopt($curl2, CURLOPT_RETURNTRANSFER, true);
 
         // Execute curl
-        $executedCURL2 = curl_exec($curl);
+        $executedCURL2 = curl_exec($curl2);
 
         // Error checking
-        if ($e2 = curl_error($curl)) {
+        if ($e2 = curl_error($curl2)) {
             echo $e2;
         } else {
             // Decode json data
             $playingMovieData = json_decode($executedCURL2, true);
 
         }
-        // var_dump($movieData);
+        // var_dump($playingMovieData);
+        
         curl_close($curl2);
         ?>

@@ -112,4 +112,33 @@ body {
     .phone-text {
         font-size: 14px;
     }
+    
+    .header-top {
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .page-link {
+        font-size: 14px;
+    }
+
+    .logo-link {
+        width: 50%;
+    }
+
+    .header-bottom {
+        flex-direction: column;
+        gap: 5px;
+        padding-block: 5px;
+        height: fit-content;
+    }
+
+    .movie-dropdown {
+        padding-block: 2px;
+    }
+
+    .order-btn {
+        padding-block: 4px;
+    }
 }

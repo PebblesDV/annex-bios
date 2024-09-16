@@ -141,4 +141,54 @@ body {
     .order-btn {
         padding-block: 4px;
     }
+
+    .title {
+        padding-block: 5px;
+        padding-inline: 10px;
+    }
+
+    .title-text {
+        font-size: 30px;
+    }
+    
+    .img-and-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .movie-img {
+        width: 90%;
+        align-self: center;
+    }
+
+    .all-actors {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+    }
+
+    .actor-img {
+        height: 70%;
+    }
+
+    .buy-tickets {
+        font-size: 30px;
+        padding-block: 10px;
+    }
+
+    .movie {
+        margin-block: 30px;
+        gap: 30px;
+    }
+
+    .homepage {
+        margin-block: 30px;
+    }
+
+    .movie-page {
+        margin-block: 30px;
+    }
+
+    .order-page {
+        margin-block: 30px;
+    }
 }

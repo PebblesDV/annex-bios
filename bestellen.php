@@ -2,6 +2,7 @@
 session_start();
 
 include_once('APIconnect.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,12 @@ include_once('APIconnect.php');
 
     <link rel="stylesheet" href="assets/css/bestellen.css">
     <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    </style>
 
     <title>Bestellen</title>
 </head>
@@ -121,10 +128,12 @@ include_once('APIconnect.php');
                 <div class="full-step">
                     <h2 class="steps bold">STAP 2: KIES JE STOEL</h2>
 
+                    <div class="movie-screen bold">FILMDOEK</div>
                     <div id="seat-map"></div>
-
-                    <button id="biep">bips</button>
-
+                    <div class="seat-colors">
+                        <div class="free">VRIJ</div>
+                        <div class="used">BEZET</div>
+                    </div>
                 </div>
 
                 <div class="full-step">

@@ -3,60 +3,39 @@ session_Start();
 
 include_once('APIconnect.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-    </style>
-
-    <title>Header</title>
-</head>
-
-<body>
-
-    <div class="header-top container">
-        <a class="logo-link" href="index.php">
-            <img class="logo" src="assets/images/logo/logo.png" alt="logo">
-        </a>
-        <div class="header-links">
-            <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
-            <a class="page-link" href="">ALLE VESTIGINGEN</a>
-            <a class="page-link" href="">CONTACT</a>
-        </div>
+<div class="header-top container">
+    <a class="logo-link" href="index.php">
+        <img class="logo" src="assets/images/logo/logo.png" alt="logo">
+    </a>
+    <div class="header-links">
+        <a class="page-link" href="film-agenda.php">FILM AGENDA</a>
+        <a class="page-link" href="">ALLE VESTIGINGEN</a>
+        <a class="page-link" href="">CONTACT</a>
     </div>
-    <div class="header-bottom container">
-        <p>KOOP JE TICKETS</p>
+</div>
+<div class="header-bottom container">
+    <p>KOOP JE TICKETS</p>
 
-        <form  action="bestellen.php" method="post">
-            <select class="movie-dropdown" name="movie" id="movies_id">
-                <option value="" disabled selected hidden required>Kies je film</option>
+    <form action="bestellen.php" method="post">
+        <select class="movie-dropdown" name="movie" id="movies_id">
+            <option value="" disabled selected hidden required>Kies je film</option>
 
-                <!-- Here start the foreach loop for the thing to show the options -->
-                     <?php
-                       foreach($movieData['data'] as $data){
-                        ?>
-                    <option value="<?=$data['imdb_id']?>" required><?=$data['title']?></option> 
-                    <?php                    
-                      }
-                     ?>
-            </select>
-        
-                <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
-              
-                <!-- <input type="submit" value="bestel Tickets"> -->
-                  <button type="submit" class="order-btn" style="border:none;">Bestel tickets</button>
-                <!-- </input> -->
-        </form>    
-        </div>
-    </div>
+            <!-- Here start the foreach loop for the thing to show the options -->
+            <?php
+            foreach ($movieData['data'] as $data) {
+            ?>
+                <option value="<?= $data['imdb_id'] ?>" required><?= $data['title'] ?></option>
+            <?php
+            }
+            ?>
+        </select>
 
-</body>
+        <!-- make it so it sends the value of it over like we did in the webshop w that crazy ?= thing idk -->
 
-</html>
+        <!-- <input type="submit" value="bestel Tickets"> -->
+        <button type="submit" class="order-btn" style="border:none;">Bestel tickets</button>
+        <!-- </input> -->
+    </form>
+</div>
+</div>

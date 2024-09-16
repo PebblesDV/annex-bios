@@ -294,10 +294,10 @@
 }
 
 #seat-map {
-    /* background-color: purple; */
     display: grid;
     row-gap: .5rem;
     width: fit-content;
+    align-self: center;
 }
 
 .seat {
@@ -335,13 +335,36 @@
     background-color: #63a6bf;
 }
 
-
-/* 
-main: #4e9bb7
-middle: #63a6bf
-selected: #225465
-*/
-
 .seat.selected {
     background-color: #225465;
+}
+
+.movie-screen {
+    border-top: 5px solid #225465;
+    width: 60%;
+    color: #225465;
+    text-align: center;
+    align-self: center;
+}
+
+.seat-colors {
+    display: flex;
+    align-self: center;
+    gap: 10px;
+}
+
+.free {
+    background-color: #4e9bb7;
+    color: white;
+    width: fit-content;
+    padding-block: 10px;
+    padding-inline: 20px;
+}
+
+.used {
+    background-color: #225465;
+    color: white;
+    width: fit-content;
+    padding-block: 10px;
+    padding-inline: 20px;
 }

@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="assets/css/card.css">
-    <title>Card</title>
-</head>
-
-<body>
-
-    <!--An idea for the front page having less pages than the actual film agenda,
+<!--An idea for the front page having less pages than the actual film agenda,
 im thinking about creating a true/false variable that changes if you load in index.php or film-agenda.php
 If its on film agenda i just let it load normally, if it is on index.php
 i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $i++;}-->

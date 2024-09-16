@@ -3,7 +3,7 @@ session_start();
 
 include_once('APIconnect.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null) {
 
     // $selectedMovie = $_POST['movies_id'];    
     //   if(!empty($selectedMovie)){
@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null){
     //   }
 } else {
     //check the thing for the thing if u got it from index instead of the header
-//    echo 'No post found.'; 
+    //    echo 'No post found.'; 
 }
 
 
@@ -124,10 +124,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null){
                 <div class="full-step">
                     <h2 class="steps bold">STAP 2: KIES JE STOEL</h2>
 
+                    <div class="movie-screen bold">FILMDOEK</div>
                     <div id="seat-map"></div>
-
-                    <button id="biep">bips</button>
-
+                    <div class="seat-colors">
+                        <div class="free">VRIJ</div>
+                        <div class="used">BEZET</div>
+                    </div>
                 </div>
 
                 <div class="full-step">

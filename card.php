@@ -52,15 +52,14 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
                     <a href="film-detail.php?id=<?= $data['imdb_id'] ?>" class="card-btn">MEER INFO & TICKETS</a>
                 </div>
             </div>
-    </div>
-<?php
+        <?php
             //   }
             // } 
 
         }
-?>
-<!-- remove rest of repeated cards -->
-</div>
+        ?>
+    </div>
+    <!-- remove rest of repeated cards -->
 
 </body>
 

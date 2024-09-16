@@ -12,6 +12,14 @@ include_once "APIconnect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/css/homepage.css">
+    <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/filters.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    </style>
 
     <title>Homepage</title>
 </head>
@@ -61,7 +69,8 @@ include_once "APIconnect.php";
             </div>
 
             <div class="selection-bottom">
-                <?php $lessMovies = true; include "card.php" ?>
+                <?php $lessMovies = true;
+                include "card.php" ?>
             </div>
 
             <div class="btn-grid">

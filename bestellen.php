@@ -17,8 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null) {
     //check the thing for the thing if u got it from index instead of the header
     //    echo 'No post found.'; 
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null) {
 
     <link rel="stylesheet" href="assets/css/bestellen.css">
     <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    </style>
 
     <title>Bestellen</title>
 </head>

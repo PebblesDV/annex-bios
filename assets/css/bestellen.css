@@ -294,7 +294,6 @@
 }
 
 #seat-map {
-    /* background-color: purple; */
     display: grid;
     row-gap: .5rem;
     width: fit-content;
@@ -336,13 +335,6 @@
     background-color: #63a6bf;
 }
 
-
-/* 
-main: #4e9bb7
-middle: #63a6bf
-selected: #225465
-*/
-
 .seat.selected {
     background-color: #225465;
 }
@@ -353,7 +345,6 @@ selected: #225465
     color: #225465;
     text-align: center;
     align-self: center;
-    font-size: ;
 }
 
 .seat-colors {

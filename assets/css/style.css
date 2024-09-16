@@ -117,6 +117,8 @@ body {
         flex-direction: column;
         justify-content: center;
         gap: 5px;
+        padding-block: 5px;
+        height: fit-content;
     }
 
     .page-link {

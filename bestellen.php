@@ -119,8 +119,10 @@ include_once('APIconnect.php');
 
                         <div class="code-and-btn">
                             <p class="order-text">VOUCHERCODE</p>
-                            <input class="code-input" type="text" placeholder="Code">
-                            <a class="add-btn" href="">TOEVOEGEN</a>
+                            <div class="voucher-input">
+                                <input class="code-input" type="text" placeholder="Code">
+                                <a class="add-btn" href="">TOEVOEGEN</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,7 +211,7 @@ include_once('APIconnect.php');
             </div>
 
             <div class="card">
-                <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+                <img class="contain-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
                 <div class="card-info padding">
                     <h2 class="text">Title of the movie</h2>
                     <p class="text">Release: 15-09-2002</p>
@@ -405,7 +407,7 @@ include_once('APIconnect.php');
         </div>
 
         <div class="card">
-            <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+            <img class="contain-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
             <div class="card-info padding">
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>

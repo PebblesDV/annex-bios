@@ -226,16 +226,15 @@
 .top-inputs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 26px;
+    gap: 5px;
 }
 
 .input {
     border: 1px solid #399CFF;
-    width: 100%;
     padding-block: 10px;
     color: rgb(107, 107, 107);
     font-size: 12px;
-    padding-inline: 10px;
+    padding-left: 10px;
 }
 
 .input::placeholder {
@@ -367,4 +366,11 @@
     width: fit-content;
     padding-block: 10px;
     padding-inline: 20px;
+}
+
+.voucher-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
 }

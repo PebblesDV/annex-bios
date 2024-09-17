@@ -116,15 +116,19 @@ body {
     }
 
     .footer-top {
-        gap: 50px;
         padding-block: 30px;
+    }
+
+    .footer-top-content {
+        flex-direction: column;
+        gap: 50px;
     }
 
     .footer-nav {
         text-align: center;
     }
 
-    .footer-bottom {
+    .footer-bottom-content {
         align-items: center;
     }
 
@@ -139,13 +143,16 @@ body {
     .phone-text {
         font-size: 14px;
     }
-    
+
     .header-top {
+        height: fit-content;
+    }
+    
+    .header-top-content {
         flex-direction: column;
         justify-content: center;
         gap: 5px;
         padding-block: 5px;
-        height: fit-content;
     }
 
     .page-link {
@@ -157,10 +164,13 @@ body {
     }
 
     .header-bottom {
+        height: fit-content;
+    }
+
+    .header-bottom-content {
         flex-direction: column;
         gap: 5px;
         padding-block: 5px;
-        height: fit-content;
     }
 
     .movie-dropdown {
@@ -219,5 +229,91 @@ body {
 
     .order-page {
         margin-block: 30px;
+    }
+
+    .order-and-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seat {
+        width: 30px;
+        height: 30px;
+    }
+
+    .seat::before {
+        width: 16px;
+    }
+
+    .seat::after {
+        width: 16px;
+    }
+
+    .code-and-btn {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .voucher-input {
+        gap: 5px;
+    }
+
+    .movie-screen {
+        width: 100%;
+    }
+
+    .seat-colors {
+        font-size: 14px;
+    }
+    
+    .input-fields {
+        width: 100%;
+    }
+    
+    .top-inputs {
+        gap: 0;
+    }
+
+    .payment {
+        gap: 20px;
+    }
+
+    .pay-btn {
+        font-size: 30px;
+        padding-block: 10px;
+    }
+
+    .overview {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        gap: 10px;
+    }
+
+    .icon {
+        width: 24px;
+    }
+
+    .tickets {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .col-1 {
+        width: 100px;
+    }
+
+    .col-6 {
+        width: 50px;
+    }
+
+    .col-7 {
+        width: 50px;
+    }
+
+    .contain-img {
+        object-fit: contain;
     }
 }

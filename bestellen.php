@@ -35,7 +35,7 @@ include_once('APIconnect.php');
             </div>
             <?php
 
-//NEGGEER DIT STUKIE IS GWN ALVAST VOOR DATA DATA IN LADEN ENZO 
+            //NEGGEER DIT STUKIE IS GWN ALVAST VOOR DATA DATA IN LADEN ENZO 
             //checking if it got send by the header or not
             // if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null) {
 
@@ -45,28 +45,28 @@ include_once('APIconnect.php');
             //         foreach ($playingMovieData['data'] as $data2) {
             //             foreach ($movieData['data'] as $data) {
             //                 if ($data['imdb_id'] == $selectedMovie) {
-                                //do the things to load it in
+            //do the things to load it in
             ?>
 
-                                <div class="order-filters">
-                                    <p class="filter"><?= $data['title'] ?></p>
+            <div class="order-filters">
+                <p class="filter"><?= $data['title'] ?></p>
 
-                                    <form action="">
-                                        <select class="filter" name="date" id="date">
-                                            <option value="" disabled selected hidden>DATUM</option>
-                                            <option value="08-06">8 juni</option>
-                                            <option value="15-09">15 september</option>
-                                        </select>
-                                    </form>
+                <form action="">
+                    <select class="filter" name="date" id="date">
+                        <option value="" disabled selected hidden>Datum</option>
+                        <option value="08-06">8 juni</option>
+                        <option value="15-09">15 september</option>
+                    </select>
+                </form>
 
-                                    <form action="">
-                                        <select class="filter" name="time" id="time">
-                                            <option value="" disabled selected hidden>TIJDSTIP</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="12:15">12:15</option>
-                                        </select>
-                                    </form>
-                                </div>
+                <form action="">
+                    <select class="filter" name="time" id="time">
+                        <option value="" disabled selected hidden>Tijdstip</option>
+                        <option value="10:00">10:00</option>
+                        <option value="12:15">12:15</option>
+                    </select>
+                </form>
+            </div>
         </div>
 
         <div class="order-and-info">
@@ -119,8 +119,10 @@ include_once('APIconnect.php');
 
                         <div class="code-and-btn">
                             <p class="order-text">VOUCHERCODE</p>
-                            <input class="code-input" type="text" placeholder="Code">
-                            <a class="add-btn" href="">TOEVOEGEN</a>
+                            <div class="voucher-input">
+                                <input class="code-input" type="text" placeholder="Code">
+                                <a class="add-btn" href="">TOEVOEGEN</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,7 +211,7 @@ include_once('APIconnect.php');
             </div>
 
             <div class="card">
-                <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+                <img class="contain-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
                 <div class="card-info padding">
                     <h2 class="text">Title of the movie</h2>
                     <p class="text">Release: 15-09-2002</p>
@@ -222,49 +224,49 @@ include_once('APIconnect.php');
             <a href="" class="pay-btn bold">AFREKENEN</a>
         </div>
 
-    <?php
-            //                 }
-            //             }
-            //         }
-            //     } else {
-            //         //give error
-            //         echo 'No given id';
-            //     }
-            // } else {
-            //     //load in the stuff w the index.php way
-                $bwap = false;
-            if ($bwap == true){
+        <?php
+        //                 }
+        //             }
+        //         }
+        //     } else {
+        //         //give error
+        //         echo 'No given id';
+        //     }
+        // } else {
+        //     //load in the stuff w the index.php way
+        $bwap = false;
+        if ($bwap == true) {
             //     if (!empty($_GET['id'])) {
 
             //         $id = $_GET['id'];
             //         foreach ($playingMovieData['data'] as $data2) {
             //             foreach ($movieData['data'] as $data) {
             //                 if ($data['imdb_id'] == $id) {
-    ?>
+        ?>
 
-        <div class="order-filters">
-            <p class="filter"><?= $data['title'] ?></p>
+            <div class="order-filters">
+                <p class="filter"><?= $data['title'] ?></p>
 
-            <form action="">
-                <select class="filter" name="date" id="date">
-                    <option value="" disabled selected hidden>DATUM</option>
-                    <?php
-                                foreach ($data2['play_time'] as $day) { ?>
-                        <option value="08-06">8 juni</option>
-                    <?php
-                                }
-                    ?>
-                </select>
-            </form>
+                <form action="">
+                    <select class="filter" name="date" id="date">
+                        <option value="" disabled selected hidden>DATUM</option>
+                        <?php
+                        foreach ($data2['play_time'] as $day) { ?>
+                            <option value="08-06">8 juni</option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </form>
 
-            <form action="">
-                <select class="filter" name="time" id="time">
-                    <option value="" disabled selected hidden>TIJDSTIP</option>
-                    <option value="10:00">10:00</option>
-                    <option value="12:15">12:15</option>
-                </select>
-            </form>
-        </div>
+                <form action="">
+                    <select class="filter" name="time" id="time">
+                        <option value="" disabled selected hidden>TIJDSTIP</option>
+                        <option value="10:00">10:00</option>
+                        <option value="12:15">12:15</option>
+                    </select>
+                </form>
+            </div>
     </div>
 
     <div class="order-and-info">
@@ -405,7 +407,7 @@ include_once('APIconnect.php');
         </div>
 
         <div class="card">
-            <img class="card-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+            <img class="contain-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
             <div class="card-info padding">
                 <h2 class="text">Title of the movie</h2>
                 <p class="text">Release: 15-09-2002</p>
@@ -424,7 +426,7 @@ include_once('APIconnect.php');
             //         }
             //     }
             // }
-                            }
+        }
 ?>
 </div>
 

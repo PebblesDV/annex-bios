@@ -4,9 +4,6 @@
 }
 
 .footer-top {
-    display: flex;
-    gap: 150px;
-    align-items: baseline;
     background-color: #666666;
     height: fit-content;
     padding-block: 50px;

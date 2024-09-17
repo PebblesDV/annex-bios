@@ -116,15 +116,19 @@ body {
     }
 
     .footer-top {
-        gap: 50px;
         padding-block: 30px;
+    }
+
+    .footer-top-content {
+        flex-direction: column;
+        gap: 50px;
     }
 
     .footer-nav {
         text-align: center;
     }
 
-    .footer-bottom {
+    .footer-bottom-content {
         align-items: center;
     }
 
@@ -139,13 +143,16 @@ body {
     .phone-text {
         font-size: 14px;
     }
-    
+
     .header-top {
+        height: fit-content;
+    }
+    
+    .header-top-content {
         flex-direction: column;
         justify-content: center;
         gap: 5px;
         padding-block: 5px;
-        height: fit-content;
     }
 
     .page-link {
@@ -157,10 +164,13 @@ body {
     }
 
     .header-bottom {
+        height: fit-content;
+    }
+
+    .header-bottom-content {
         flex-direction: column;
         gap: 5px;
         padding-block: 5px;
-        height: fit-content;
     }
 
     .movie-dropdown {

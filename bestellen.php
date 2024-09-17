@@ -34,6 +34,7 @@ include_once('APIconnect.php');
                 <p class="title-text bold">TICKETS BESTELLEN</p>
             </div>
             <?php
+  
             //de get voor als je via de film detail pagina doet :3
             if (!empty($_GET['id'])) {
                 //setting the gotten id value in a variable to use
@@ -67,6 +68,7 @@ include_once('APIconnect.php');
                                         </select>
                                     </form>
                                 </div>
+          
         </div>
 
         <div class="order-and-info">
@@ -119,8 +121,10 @@ include_once('APIconnect.php');
 
                         <div class="code-and-btn">
                             <p class="order-text">VOUCHERCODE</p>
-                            <input class="code-input" type="text" placeholder="Code">
-                            <a class="add-btn" href="">TOEVOEGEN</a>
+                            <div class="voucher-input">
+                                <input class="code-input" type="text" placeholder="Code">
+                                <a class="add-btn" href="">TOEVOEGEN</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -222,7 +226,9 @@ include_once('APIconnect.php');
             </div>
 
             <div class="card">
-                <img class="card-img" src="<?= $data['image'] ?>" alt="movie">
+            
+                <img class="contain-img" src="<?= $data['image'] ?>" alt="movie">
+
                 <div class="card-info padding">
                     <h2 class="text"><?= $data['title'] ?></h2>
                     <p class="text">Release: <?= $data['release_date'] ?></p>
@@ -234,12 +240,14 @@ include_once('APIconnect.php');
         <div class="btn-grid">
             <a href="" class="pay-btn bold">AFREKENEN</a>
         </div>
+
 <?php
                             }
                         }
                     }
                 }
             }
+
 ?>
 
     </div>

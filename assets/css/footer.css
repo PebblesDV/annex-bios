@@ -4,12 +4,15 @@
 }
 
 .footer-top {
-    display: flex;
-    gap: 150px;
-    align-items: baseline;
     background-color: #666666;
     height: fit-content;
     padding-block: 50px;
+}
+
+.footer-top-content {
+    display: flex;
+    gap: 150px;
+    align-items: baseline;
 }
 
 .top-left {
@@ -87,10 +90,13 @@
 }
 
 .footer-bottom {
-    display: flex;
-    gap: 10px;
     background-color: black;
     height: fit-content;
     padding-block: 20px;
+}
+
+.footer-bottom-content {
+    display: flex;
+    gap: 10px;
 }
 

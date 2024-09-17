@@ -34,39 +34,41 @@ include_once('APIconnect.php');
                 <p class="title-text bold">TICKETS BESTELLEN</p>
             </div>
             <?php
+  
+            //de get voor als je via de film detail pagina doet :3
+            if (!empty($_GET['id'])) {
+                //setting the gotten id value in a variable to use
+                $id = $_GET['id'];
+                //looping through the things and checking if the id's of the things align so that it dont fuck up <3
+                foreach ($playingMovieData['data'] as $data2) {
+                    if ($data2['movie_id'] == $id) {
+                        foreach ($movieData['data'] as $data) {
+                            if ($data['api_id'] == $id) {
 
-            //NEGGEER DIT STUKIE IS GWN ALVAST VOOR DATA DATA IN LADEN ENZO 
-            //checking if it got send by the header or not
-            // if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST != null) {
+                                //spliting the date info cuz we don need allat
+                                $datetime_split = explode(' ', $data2['play_time']);
 
-            //     $selectedMovie = $_POST['movie'];
-
-            //     if (!empty($selectedMovie)) {
-            //         foreach ($playingMovieData['data'] as $data2) {
-            //             foreach ($movieData['data'] as $data) {
-            //                 if ($data['imdb_id'] == $selectedMovie) {
-            //do the things to load it in
+                                // seperating the date n time like a bad bitch <3
+                                $date = $datetime_split[0]; 
+                                $time = $datetime_split[1]; 
             ?>
 
-            <div class="order-filters">
-                <p class="filter"><?= $data['title'] ?></p>
+                                <div class="order-filters">
+                                    <p class="filter"><?= $data['title'] ?></p>
 
-                <form action="">
-                    <select class="filter" name="date" id="date">
-                        <option value="" disabled selected hidden>Datum</option>
-                        <option value="08-06">8 juni</option>
-                        <option value="15-09">15 september</option>
-                    </select>
-                </form>
+                                    <form action="">
+                                        <select class="filter" name="date" id="date">
+                                            <option value="" disabled selected hidden>DATUM</option>
+                                            <option value="<?= $date ?>"><?= $date ?></option>
+                                        </select>
 
-                <form action="">
-                    <select class="filter" name="time" id="time">
-                        <option value="" disabled selected hidden>Tijdstip</option>
-                        <option value="10:00">10:00</option>
-                        <option value="12:15">12:15</option>
-                    </select>
-                </form>
-            </div>
+                                        <select class="filter" name="time" id="time">
+                                            <option value="" disabled selected hidden>TIJDSTIP</option>
+                                            <option value="<?= $time ?>"><?= $time ?></option>
+                                        </select>
+                                    </form>
+                                </div>
+          
         </div>
 
         <div class="order-and-info">
@@ -140,31 +142,44 @@ include_once('APIconnect.php');
 
                 <div class="full-step">
                     <h2 class="steps bold">STAP 3: CONTROLEER JE BESTELLING</h2>
-
                     <div class="overview">
-                        <img class="overview-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+                        <img class="overview-img" src="<?= $data['image'] ?>" alt="movie">
                         <div class="overview-text">
                             <div class="title-icons">
-                                <h2 class="gray">JURASSIC WORLD: FALLEN KINGDOM</h2>
+                                <h2 class="gray"><?= $data['title'] ?></h2>
                                 <div class="icons">
-                                    <img class="icon" src="assets/images/kijkwijzers/kijkwijzer-12.png" alt="12">
-                                    <img class="icon" src="assets/images/kijkwijzers/kijkwijzer-eng.png" alt="scary">
-                                    <img class="icon" src="assets/images/kijkwijzers/kijkwijzer-geweld.png" alt="violence">
+                                    <?php
+                                    //looping through the things to check if everythang align n we can show iitttt
+                                    foreach ($data['viewing_guides'] as $view_guide) {
+                                        foreach ($view_guide['symbols'] as $guide) {
+                                    ?>
+                                            <img class="icon" src="<?= $guide['image'] ?>" alt="<?= $guide['name'] ?>">
+                                    <?php
+                                        }
+                                    }
+                                    ?>
                                 </div>
                             </div>
 
                             <div class="ticket-info">
                                 <div class="top-info">
                                     <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Bioscoop:</span> Hellevoetsluit (Zaal 3)</p>
-                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span> 15 september 11:20</p>
+                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span> <?= $date ?> <?= $time ?></p>
                                     <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Stoelen:</span> Rij 2, stoel 7</p>
-                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span> 2x normaal</p>
+                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span> <span class="small-text gray" id="order-summary">Geen tickets geselecteerd</span></p>
                                 </div>
-                                <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Totaal 2 tickets:</span> €18,00</p>
+                                <p class="small-text gray">
+                                    <span style="color:rgb(107, 107, 107);font-weight:bold">Totaal
+                                        <span class="small-text gray" style="color:rgb(107, 107, 107);font-weight:bold" id="order-summary">(amount tickets)</span>
+                                        ticket(s): </span>
+                                    <span class="small-text gray" id="total-price"> €0,00
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="full-step">
                     <h2 class="steps bold">STAP 4: VUL JE GEGEVENS IN</h2>
@@ -211,11 +226,13 @@ include_once('APIconnect.php');
             </div>
 
             <div class="card">
-                <img class="contain-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
+            
+                <img class="contain-img" src="<?= $data['image'] ?>" alt="movie">
+
                 <div class="card-info padding">
-                    <h2 class="text">Title of the movie</h2>
-                    <p class="text">Release: 15-09-2002</p>
-                    <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
+                    <h2 class="text"><?= $data['title'] ?></h2>
+                    <p class="text">Release: <?= $data['release_date'] ?></p>
+                    <p class="movie-info text"><?= $data['description'] ?></p>
                 </div>
             </div>
         </div>
@@ -224,216 +241,21 @@ include_once('APIconnect.php');
             <a href="" class="pay-btn bold">AFREKENEN</a>
         </div>
 
-        <?php
-        //                 }
-        //             }
-        //         }
-        //     } else {
-        //         //give error
-        //         echo 'No given id';
-        //     }
-        // } else {
-        //     //load in the stuff w the index.php way
-        $bwap = false;
-        if ($bwap == true) {
-            //     if (!empty($_GET['id'])) {
-
-            //         $id = $_GET['id'];
-            //         foreach ($playingMovieData['data'] as $data2) {
-            //             foreach ($movieData['data'] as $data) {
-            //                 if ($data['imdb_id'] == $id) {
-        ?>
-
-            <div class="order-filters">
-                <p class="filter"><?= $data['title'] ?></p>
-
-                <form action="">
-                    <select class="filter" name="date" id="date">
-                        <option value="" disabled selected hidden>DATUM</option>
-                        <?php
-                        foreach ($data2['play_time'] as $day) { ?>
-                            <option value="08-06">8 juni</option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </form>
-
-                <form action="">
-                    <select class="filter" name="time" id="time">
-                        <option value="" disabled selected hidden>TIJDSTIP</option>
-                        <option value="10:00">10:00</option>
-                        <option value="12:15">12:15</option>
-                    </select>
-                </form>
-            </div>
-    </div>
-
-    <div class="order-and-info">
-        <div class="order">
-
-            <div class="full-step">
-                <h2 class="steps bold">STAP 1: KIES JE TICKET</h2>
-
-                <div class="pick-tickets">
-                    <div class="tickets">
-                        <p class="order-text col-1">TYPE</p>
-                        <p class="order-text col-6 center">PRIJS</p>
-                        <p class="order-text col-7 center">AANTAL</p>
-                    </div>
-
-                    <div class="border"></div>
-
-                    <div class="tickets">
-                        <p class="order-text col-1">NORMAAL</p>
-                        <p class="order-text col-6 center">€9,00</p>
-                        <select class="amount-dropdown" name="normaal" id="normaal">
-                            <option value="0" selected>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="tickets">
-                        <p class="order-text col-1">Kind t/m 11 jaar</p>
-                        <p class="order-text col-6 center">€5,00</p>
-                        <select class="amount-dropdown" name="kind" id="kind">
-                            <option value="0" selected>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="tickets">
-                        <p class="order-text col-1">65+</p>
-                        <p class="order-text col-6 center">€7,00</p>
-                        <select class="amount-dropdown" name="65" id="65">
-                            <option value="0" selected>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-
-                    <div class="border"></div>
-
-                    <div class="code-and-btn">
-                        <p class="order-text">VOUCHERCODE</p>
-                        <input class="code-input" type="text" placeholder="Code">
-                        <a class="add-btn" href="">TOEVOEGEN</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="full-step">
-                <h2 class="steps bold">STAP 2: KIES JE STOEL</h2>
-
-                <div id="seat-map"></div>
-
-                <button id="biep">bips</button>
-
-            </div>
-
-            <div class="full-step">
-                <h2 class="steps bold">STAP 3: CONTROLEER JE BESTELLING</h2>
-
-                <div class="overview">
-                    <img class="overview-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
-                    <div class="overview-text">
-                        <div class="title-icons">
-                            <h2 class="gray">JURASSIC WORLD: FALLEN KINGDOM</h2>
-                            <div class="icons">
-                                <img class="icon" src="assets/images/kijkwijzers/kijkwijzer-12.png" alt="12">
-                                <img class="icon" src="assets/images/kijkwijzers/kijkwijzer-eng.png" alt="scary">
-                                <img class="icon" src="assets/images/kijkwijzers/kijkwijzer-geweld.png" alt="violence">
-                            </div>
-                        </div>
-
-                        <div class="ticket-info">
-                            <div class="top-info">
-                                <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Bioscoop:</span> Hellevoetsluit (Zaal 3)</p>
-                                <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span> 15 september 11:20</p>
-                                <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Stoelen:</span> Rij 2, stoel 7</p>
-                                <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span> 2x normaal</p>
-                            </div>
-                            <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Totaal 2 tickets:</span> €18,00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="full-step">
-                <h2 class="steps bold">STAP 4: VUL JE GEGEVENS IN</h2>
-
-                <div class="input-fields">
-                    <div class="top-inputs">
-                        <input type="text" class="input big" placeholder="Voornaam">
-                        <input type="text" class="input big" placeholder="Achternaam*">
-                    </div>
-                    <input type="text" class="input" placeholder="E-mailadres*">
-                    <input type="text" class="input" placeholder="E-mailadres*">
-                </div>
-            </div>
-
-            <div class="full-step">
-                <h2 class="steps bold">STAP 5: KIES JE BETAALWIJZE</h2>
-                <div class="payment-terms">
-                    <div class="payment">
-                        <div class="method">
-                            <input type="checkbox" id="biosbon" class="payment-btn" name="biosbon" value="Bios bon">
-                            <label for="biosbon">
-                                <img class="payment-img" src="assets/images/betalen/biosbon.png" alt="biosbon">
-                            </label>
-                        </div>
-                        <div class="method">
-                            <input type="checkbox" id="maestro" class="payment-btn" name="maestro" value="Maestro">
-                            <label for="maestro">
-                                <img class="payment-img" src="assets/images/betalen/maestro.png" alt="maestro">
-                            </label>
-                        </div>
-                        <div class="method">
-                            <input type="checkbox" id="ideal" class="payment-btn" name="ideal" value="Ideal">
-                            <label for="ideal">
-                                <img class="payment-img" src="assets/images/betalen/ideal.png" alt="ideal">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="terms-of-use">
-                        <input type="checkbox" id="terms" class="payment-btn" name="terms" value="terms">
-                        <label class="terms-text" for="terms">Ja, ik ga akkoord met de <span style="text-decoration:underline;color:rgb(107,107,107)">algemene voorwaarden</span>.</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <img class="contain-img" src="assets/images/films/Jurassic-World_-Fallen-Kingdom.jpg" alt="movie">
-            <div class="card-info padding">
-                <h2 class="text">Title of the movie</h2>
-                <p class="text">Release: 15-09-2002</p>
-                <p class="movie-info text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="btn-grid">
-        <a href="" class="pay-btn bold">AFREKENEN</a>
-    </div>
-
 <?php
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
-        }
+                            }
+                        }
+                    }
+                }
+            }
+
 ?>
-</div>
 
-<?php include "footer.php" ?>
+    </div>
 
-<script src="assets/js/seat.js"></script>
+    <?php include "footer.php" ?>
 
+    <script src="assets/js/seat.js"></script>
+    <script src="assets/js/paying.js"></script>
 
 </body>
 

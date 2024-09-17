@@ -7,24 +7,24 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
 
     <?php
 
-    $i = 0;
-    // var_dump($playingMovieData);
 
-    if (1 == 1) {
-        foreach ($playingMovieData['data'] as $playingMovieData) {
-            //     echo $playingMovieData['movie_id'];
-            foreach ($movieData["data"] as $data) {
-                if ($lessMovies && $i >= 6) {
-                    break;
-                }
+        $i = 0;
+        // var_dump($playingMovieData);
 
-                //put $i++ here if u want it to break or sum idk
+        if (1 == 1) {
+            foreach($playingMovieData['data'] as $playingMovieData){
+    //     echo $playingMovieData['movie_id'];
+        foreach($movieData["data"] as $data){
+          if($lessMovies && $i >=6){
+              break;
+          }         
 
-                if ($data['api_id'] == $playingMovieData['movie_id']) {
-                    //load in movies
+          //put $i++ here if u want it to break or sum idk
 
-                    $i++;
-
+           if($data['api_id'] == $playingMovieData['movie_id']){
+            //load in movies
+            
+            $i++;
 
     ?>
                     <div class="card">
@@ -35,7 +35,7 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
                                 <p class="text">Release: <?= $data['release_date'] ?></p>
                                 <p class="movie-info text"><?= $data['description'] ?></p>
                             </div>
-                            <a href="film-detail.php?id=<?= $data['imdb_id'] ?>" class="card-btn">MEER INFO & TICKETS</a>
+                            <a href="film-detail.php?id=<?= $data['api_id'] ?>" class="card-btn">MEER INFO & TICKETS</a>
                         </div>
                     </div>
     <?php

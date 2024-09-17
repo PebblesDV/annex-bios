@@ -75,8 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateDateTimeDisplay() {
         let selectedDate = document.getElementById('date').options[document.getElementById('date').selectedIndex].value;
         let selectedTime = document.getElementById('time').options[document.getElementById('time').selectedIndex].value;
-
-        console.log(selectedDate);
     
         document.getElementById('selected-date').textContent = selectedDate;
         document.getElementById('selected-time').textContent = selectedTime;

@@ -23,6 +23,33 @@ body {
     font-style: normal;
 }
 
+@media screen and (min-width: 1500px) {
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    .homepage {
+        margin-block: 100px;
+    }
+
+    .movie-page {
+        margin-block: 50px;
+    }
+
+    .movie {
+        margin-block: 50px;
+    }
+
+    .order-page {
+        margin-block: 50px;
+    }
+
+    body {
+        background-size: cover;
+    }
+}
+
 @media screen and (max-width: 750px) {
     .container {
         padding-inline: 20px;

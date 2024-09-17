@@ -55,18 +55,15 @@ include_once('APIconnect.php');
 
                                 <div class="order-filters">
                                     <p class="filter"><?= $data['title'] ?></p>
-
-                                    <form action="">
-                                        <select class="filter" name="date" id="date">
+                                        <select class="filter" name="date" id="date" required>
                                             <option value="" disabled selected hidden>DATUM</option>
-                                            <option value="<?= $date ?>"><?= $date ?></option>
+                                            <option value="<?=$date?>"><?= $date ?></option>
                                         </select>
 
-                                        <select class="filter" name="time" id="time">
+                                        <select class="filter" name="time" id="time" required>
                                             <option value="" disabled selected hidden>TIJDSTIP</option>
-                                            <option value="<?= $time ?>"><?= $time ?></option>
+                                            <option value="<?=$time?>"><?= $time ?></option>
                                         </select>
-                                    </form>
                                 </div>
           
         </div>
@@ -122,8 +119,8 @@ include_once('APIconnect.php');
                         <div class="code-and-btn">
                             <p class="order-text">VOUCHERCODE</p>
                             <div class="voucher-input">
-                                <input class="code-input" type="text" placeholder="Code">
-                                <a class="add-btn" href="">TOEVOEGEN</a>
+                                <input class="code-input" id="voucher-input" type="text" placeholder="Code">
+                                <a class="add-btn" id="code-input" href="">TOEVOEGEN</a>
                             </div>
                         </div>
                     </div>
@@ -164,13 +161,19 @@ include_once('APIconnect.php');
                             <div class="ticket-info">
                                 <div class="top-info">
                                     <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Bioscoop:</span> Hellevoetsluit (Zaal 3)</p>
-                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span> <?= $date ?> <?= $time ?></p>
+                                    <p class="small-text gray">
+                                        <span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span> 
+                                        <span class="small-text gray" id="selected-date">-</span>
+                                        <span class="small-text gray" id="selected-time">-</span>
+                                    </p>
                                     <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Stoelen:</span> Rij 2, stoel 7</p>
-                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span> <span class="small-text gray" id="order-summary">Geen tickets geselecteerd</span></p>
+                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span> 
+                                      <span class="small-text gray" id="order-summary-1">Geen tickets geselecteerd</span>
+                                    </p>
                                 </div>
                                 <p class="small-text gray">
                                     <span style="color:rgb(107, 107, 107);font-weight:bold">Totaal
-                                        <span class="small-text gray" style="color:rgb(107, 107, 107);font-weight:bold" id="order-summary">(amount tickets)</span>
+                                    <span class="small-text gray" id="order-summary-2" style="color:rgb(107, 107, 107);font-weight:bold">geen</span>
                                         ticket(s): </span>
                                     <span class="small-text gray" id="total-price"> €0,00
                                     </span>

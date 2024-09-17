@@ -37,7 +37,7 @@ include_once "APIconnect.php";
             $id = $_GET['id'];
 
             foreach ($movieData['data'] as $data) {
-                if ($data['imdb_id'] == $id) {
+                if ($data['api_id'] == $id) {
                     //here you put evreyting that is below here, then its just a question 
         ?>
 
@@ -67,17 +67,19 @@ include_once "APIconnect.php";
                                 <p class="movie-text text"><?= $data['description'] ?></p>
 
                                 <div class="movie-details">
-                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> <?php
-                                                                                                                                    foreach ($data['viewing_guides'] as $view_guide) {
-                                                                                                                                        foreach ($view_guide['symbols'] as $guide) {
-                                                                                                                                            if (count($guide) > 1) {
-                                                                                                                                                echo $guide['name'] . ' ';
-                                                                                                                                            } else {
-                                                                                                                                                $guide['name'];
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    }
-                                                                                                                                    ?></p>
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> 
+                                    <?php
+                                        foreach ($data['viewing_guides'] as $view_guide) {
+                                            foreach ($view_guide['symbols'] as $guide) {
+                                                if (count($guide) > 1) {
+                                                    echo $guide['name'] . ' ';
+                                                } else {
+                                                    $guide['name'];
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                    </p>
                                     <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Filmlengte:</span> <?= $data['length'] ?> min</p>
                                     <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Land:</span> USA</p>
                                     <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Imdb score:</span> <?= $data['rating'] ?>/10</p>
@@ -112,7 +114,7 @@ include_once "APIconnect.php";
                             </div>
                         </div>
 
-                        <a href="bestellen.php?id=<?= $data['imdb_id'] ?>" class="buy-tickets bold">KOOP JE TICKETS</a>
+                        <a href="bestellen.php?id=<?= $data['api_id'] ?>" class="buy-tickets bold">KOOP JE TICKETS</a>
 
                         <iframe
                             width="100%"

@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         //sets tha ho UUUPPP
-        document.getElementById('order-summary').textContent = ticketAmountText;
+        document.getElementById('order-summary-1').textContent = ticketAmountText;
+        document.getElementById('order-summary-2').textContent = ticketAmountText;
     }
 
     // event listners because listening to people and validating their feelings is a nice thing to do <3
@@ -53,20 +54,36 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('65').addEventListener('change', updateTotalPrice);
 
     // DISCCOOUUUNTTTTT (or not?!?!) (gone wrong) (NOT CLICKBAIT!!!111!!1 11111!!!!!)
-    document.getElementById('apply-voucher').addEventListener('click', function(e) {
+    document.getElementById('voucher-input').addEventListener('click', function(e) {
         e.preventDefault();
 
-        let voucherCode = document.getElementById('voucher-code').value;
+        let voucherCode = document.getElementById('code-input').value;
 
-        //just a stand in voucher code for now since ion got time for that hehe :3
+        // just a stand in voucher code for now since ion got time for that hehe :3
         if (voucherCode === '9yearanniverssary') {
-            discount = 9.99; // Discount of 10 euros
+            discount = 9.99; // Hehehhe undertale reference
             alert('Voucher applied!');
         } else {
             discount = 0;
             alert('Invalid voucher code');
         }
 
-        updateTotalPrice(); //UPDATING THA HO'S PRICE CUZ SHE GOTTA AKNOW WHASSUUPP
+        updateTotalPrice(); // UPDATING THA HO'S PRICE CUZ SHE GOTTA AKNOW WHASSUUPP
     });
+
+    // Update date and time display
+    function updateDateTimeDisplay() {
+        let selectedDate = document.getElementById('date').options[document.getElementById('date').selectedIndex].value;
+        let selectedTime = document.getElementById('time').options[document.getElementById('time').selectedIndex].value;
+
+        console.log(selectedDate);
+    
+        document.getElementById('selected-date').textContent = selectedDate;
+        document.getElementById('selected-time').textContent = selectedTime;
+    }
+    
+    // Event listeners for date and time changes
+    document.getElementById('date').addEventListener('change', updateDateTimeDisplay);
+    document.getElementById('time').addEventListener('change', updateDateTimeDisplay);
+    
 });

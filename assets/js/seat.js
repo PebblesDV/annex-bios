@@ -39,6 +39,14 @@ function renderSeatMap() {
             seatMapContainer.appendChild(seatElement);
         });
     });
+
+    // Haalt de seeeaattss YASSS en laat de rows n columns zien yk how it isss
+    const selectedSeats = getSelectedSeats();
+    const rowsDisplay = selectedSeats.map(seat => seat.row + 1).join(', ') || '-'; // de - is wat ie doet als er niks geselecteerd is.
+    const colsDisplay = selectedSeats.map(seat => seat.col + 1).join(', ') || '-';
+
+    document.getElementById('selected-seats-rows').textContent = `Rij ${rowsDisplay}`;
+    document.getElementById('selected-seats-columns').textContent = `stoel ${colsDisplay}`;
 }
 
 // Toggle seat selection
@@ -46,6 +54,7 @@ function toggleSeatSelection(row, col) {
     const seat = seatMap[row][col];
     seat.selected = !seat.selected; // Toggle selection state
     renderSeatMap();
+    console.log(seatMap);
 }
 
 // Get a list of selected seats
@@ -62,3 +71,6 @@ function getSelectedSeats() {
 }
 
 renderSeatMap();
+
+// laat de geselecteerde stoelen zien in de console
+console.log(seatMap);

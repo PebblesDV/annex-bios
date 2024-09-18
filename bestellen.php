@@ -34,7 +34,7 @@ include_once('APIconnect.php');
                 <p class="title-text bold">TICKETS BESTELLEN</p>
             </div>
             <?php
-  
+
             //de get voor als je via de film detail pagina doet :3
             if (!empty($_GET['id'])) {
                 //setting the gotten id value in a variable to use
@@ -49,23 +49,23 @@ include_once('APIconnect.php');
                                 $datetime_split = explode(' ', $data2['play_time']);
 
                                 // seperating the date n time like a bad bitch <3
-                                $date = $datetime_split[0]; 
-                                $time = $datetime_split[1]; 
+                                $date = $datetime_split[0];
+                                $time = $datetime_split[1];
             ?>
 
                                 <div class="order-filters">
                                     <p class="filter"><?= $data['title'] ?></p>
-                                        <select class="filter" name="date" id="date" required>
-                                            <option value="" disabled selected hidden>DATUM</option>
-                                            <option value="<?=$date?>"><?= $date ?></option>
-                                        </select>
+                                    <select class="filter" name="date" id="date" required>
+                                        <option value="" disabled selected hidden>DATUM</option>
+                                        <option value="<?= $date ?>"><?= $date ?></option>
+                                    </select>
 
-                                        <select class="filter" name="time" id="time" required>
-                                            <option value="" disabled selected hidden>TIJDSTIP</option>
-                                            <option value="<?=$time?>"><?= $time ?></option>
-                                        </select>
+                                    <select class="filter" name="time" id="time" required>
+                                        <option value="" disabled selected hidden>TIJDSTIP</option>
+                                        <option value="<?= $time ?>"><?= $time ?></option>
+                                    </select>
                                 </div>
-          
+
         </div>
 
         <div class="order-and-info">
@@ -162,18 +162,24 @@ include_once('APIconnect.php');
                                 <div class="top-info">
                                     <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Bioscoop:</span> Hellevoetsluit (Zaal 3)</p>
                                     <p class="small-text gray">
-                                        <span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span> 
+                                        <span style="color:rgb(107, 107, 107);font-weight:bold">Wanneer:</span>
                                         <span class="small-text gray" id="selected-date">-</span>
                                         <span class="small-text gray" id="selected-time">-</span>
                                     </p>
-                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Stoelen:</span> Rij 2, stoel 7</p>
-                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span> 
-                                      <span class="small-text gray" id="order-summary-1">Geen tickets geselecteerd</span>
+                                    <div id="selected-seats"></div>
+
+                                    <p class="small-text gray">
+                                        <span style="color:rgb(107, 107, 107);font-weight:bold">Stoelen:</span>
+                                        <span class="small-text gray" id="selected-seats-rows">0</span>
+                                        , <span class="small-text gray" id="selected-seats-columns">0</span>
+                                    </p>
+                                    <p class="small-text gray"><span style="color:rgb(107, 107, 107);font-weight:bold">Tickets:</span>
+                                        <span class="small-text gray" id="order-summary-1">Geen tickets geselecteerd</span>
                                     </p>
                                 </div>
                                 <p class="small-text gray">
                                     <span style="color:rgb(107, 107, 107);font-weight:bold">Totaal
-                                    <span class="small-text gray" id="order-summary-2" style="color:rgb(107, 107, 107);font-weight:bold">geen</span>
+                                        <span class="small-text gray" id="order-summary-2" style="color:rgb(107, 107, 107);font-weight:bold">geen</span>
                                         ticket(s): </span>
                                     <span class="small-text gray" id="total-price"> €0,00
                                     </span>
@@ -186,14 +192,13 @@ include_once('APIconnect.php');
 
                 <div class="full-step">
                     <h2 class="steps bold">STAP 4: VUL JE GEGEVENS IN</h2>
-
-                    <div class="input-fields">
-                        <div class="top-inputs">
-                            <input type="text" class="input big" placeholder="Voornaam">
-                            <input type="text" class="input big" placeholder="Achternaam*">
-                        </div>
-                        <input type="text" class="input" placeholder="E-mailadres*">
-                        <input type="text" class="input" placeholder="E-mailadres*">
+                        <div class="input-fields">
+                            <div class="top-inputs">
+                                <input type="text" class="input big" id="firstName" placeholder="Voornaam" required>
+                                <input type="text" class="input big" id="lastName" placeholder="Achternaam*" required>
+                            </div>
+                            <input type="email" class="input" id="email" placeholder="E-mailadres*" required>
+                            <input type="email" class="input" id="emailConfirm" placeholder="E-mailadres bevestigen*" required>
                     </div>
                 </div>
 
@@ -202,26 +207,26 @@ include_once('APIconnect.php');
                     <div class="payment-terms">
                         <div class="payment">
                             <div class="method">
-                                <input type="checkbox" id="biosbon" class="payment-btn" name="biosbon" value="Bios bon">
+                                <input type="radio" id="biosbon" class="payment-btn" name="paymentMethod" value="Bios bon">
                                 <label for="biosbon">
                                     <img class="payment-img" src="assets/images/betalen/biosbon.png" alt="biosbon">
                                 </label>
                             </div>
                             <div class="method">
-                                <input type="checkbox" id="maestro" class="payment-btn" name="maestro" value="Maestro">
+                                <input type="radio" id="maestro" class="payment-btn" name="paymentMethod" value="Maestro">
                                 <label for="maestro">
                                     <img class="payment-img" src="assets/images/betalen/maestro.png" alt="maestro">
                                 </label>
                             </div>
                             <div class="method">
-                                <input type="checkbox" id="ideal" class="payment-btn" name="ideal" value="Ideal">
+                                <input type="radio" id="ideal" class="payment-btn" name="paymentMethod" value="Ideal">
                                 <label for="ideal">
                                     <img class="payment-img" src="assets/images/betalen/ideal.png" alt="ideal">
                                 </label>
                             </div>
                         </div>
                         <div class="terms-of-use">
-                            <input type="checkbox" id="terms" class="payment-btn" name="terms" value="terms">
+                            <input type="checkbox" id="terms" class="payment-btn" name="terms" value="terms" required>
                             <label class="terms-text" for="terms">Ja, ik ga akkoord met de <span style="text-decoration:underline;color:rgb(107,107,107)">algemene voorwaarden</span>.</label>
                         </div>
                     </div>
@@ -229,7 +234,7 @@ include_once('APIconnect.php');
             </div>
 
             <div class="card">
-            
+
                 <img class="contain-img" src="<?= $data['image'] ?>" alt="movie">
 
                 <div class="card-info padding">
@@ -240,9 +245,9 @@ include_once('APIconnect.php');
             </div>
         </div>
 
-        <div class="btn-grid">
-            <a href="" class="pay-btn bold">AFREKENEN</a>
-        </div>
+            <div class="btn-grid">
+                <button type="submit" class="pay-btn bold" id="checkingOut">AFREKENEN</button>
+            </div>
 
 <?php
                             }

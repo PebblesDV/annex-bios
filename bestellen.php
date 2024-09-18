@@ -147,13 +147,11 @@ include_once('APIconnect.php');
                                 <div class="icons">
                                     <?php
                                     //looping through the things to check if everythang align n we can show iitttt
-                                    foreach ($data['viewing_guides'] as $view_guide) {
-                                        foreach ($view_guide['symbols'] as $guide) {
+                                    foreach ($data['viewing_guides']['symbols'] as $guide) {
                                     ?>
                                             <img class="icon" src="<?= $guide['image'] ?>" alt="<?= $guide['name'] ?>">
                                     <?php
                                         }
-                                    }
                                     ?>
                                 </div>
                             </div>

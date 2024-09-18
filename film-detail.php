@@ -52,13 +52,11 @@ include_once "APIconnect.php";
                             <div class="movie-info">
                                 <div class="view-icons">
                                     <?php
-                                    foreach ($data['viewing_guides'] as $view_guide) {
-                                        foreach ($view_guide['symbols'] as $guide) {
-
+                                    foreach ($data['viewing_guides']['symbols'] as $guide) {
                                     ?>
-                                            <img class="v-icon" src="<?= $guide['image'] ?>" alt="<?= $guide['name'] ?>">
+                                        <img class="v-icon" src="<?=$guide['image']?>" alt="<?=$guide['name']?>">
                                     <?php
-                                        }
+
                                     }
                                     ?>
                                 </div>
@@ -67,18 +65,16 @@ include_once "APIconnect.php";
                                 <p class="movie-text text"><?= $data['description'] ?></p>
 
                                 <div class="movie-details">
-                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span> 
-                                    <?php
-                                        foreach ($data['viewing_guides'] as $view_guide) {
-                                            foreach ($view_guide['symbols'] as $guide) {
-                                                if (count($guide) > 1) {
-                                                    echo $guide['name'] . ' ';
-                                                } else {
-                                                    $guide['name'];
-                                                }
+                                    <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Genre:</span>
+                                        <?php
+                                        foreach ($data['viewing_guides']['symbols'] as $guide) {
+                                            if (count($guide) > 1) {
+                                                echo $guide['name'] . ' ';
+                                            } else {
+                                                $guide['name'];
                                             }
                                         }
-                                    ?>
+                                        ?>
                                     </p>
                                     <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Filmlengte:</span> <?= $data['length'] ?> min</p>
                                     <p class="movie-text text"><span style="font-weight:bold;color:rgb(82, 81, 81);">Land:</span> USA</p>

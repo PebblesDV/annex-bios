@@ -40,13 +40,13 @@ include_once('APIconnect.php');
                 //setting the gotten id value in a variable to use
                 $id = $_GET['id'];
                 //looping through the things and checking if the id's of the things align so that it dont fuck up <3
-                foreach ($playingMovieData['data'] as $data2) {
-                    if ($data2['movie_id'] == $id) {
+                // foreach ($playingMovieData['data'] as $data2) {
+                    // if ($data2['movie_id'] == $id) {
                         foreach ($movieData['data'] as $data) {
-                            if ($data['api_id'] == $id) {
+                             if ($data['api_id'] == $id) {
 
                                 //spliting the date info cuz we don need allat
-                                $datetime_split = explode(' ', $data2['play_time']);
+                                $datetime_split = explode(' ', $playingMovieData['data'][0]['play_time']);
 
                                 // seperating the date n time like a bad bitch <3
                                 $date = $datetime_split[0];
@@ -251,8 +251,8 @@ include_once('APIconnect.php');
                             }
                         }
                     }
-                }
-            }
+            //     }
+            // }
 
 ?>
 

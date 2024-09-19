@@ -8,23 +8,23 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
     <?php
 
 
-        $i = 0;
-        // var_dump($playingMovieData);
+    $i = 0;
+    // var_dump($playingMovieData);
 
-        if (1 == 1) {
-            foreach($playingMovieData['data'] as $playingMovieData){
-    //     echo $playingMovieData['movie_id'];
-        foreach($movieData["data"] as $data){
-          if($lessMovies && $i >=6){
-              break;
-          }         
+    if (isset($movieData['data'])) {
+        // foreach ($playingMovieData['data'] as $playingMovieData) {
+            //     echo $playingMovieData['movie_id'];
+            foreach ($movieData["data"] as $data) {
+                if ($lessMovies && $i >= 6) {
+                    break;
+                }
 
-          //put $i++ here if u want it to break or sum idk
+                //put $i++ here if u want it to break or sum idk
 
-           if($data['api_id'] == $playingMovieData['movie_id']){
-            //load in movies
-            
-            $i++;
+                // if ($data['api_id'] == $playingMovieData['movie_id']) {
+                    //load in movies
+
+                    $i++;
 
     ?>
                     <div class="card">
@@ -40,8 +40,8 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
                     </div>
     <?php
                 }
-            }
-        }
+            // }
+        // }
     } else {
         echo 'error, no "data" found';
     }

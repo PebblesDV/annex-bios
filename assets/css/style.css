@@ -322,4 +322,17 @@ body {
     .container {
         padding-inline: 100px;
     }
+
+    .all-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .btn-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filters {
+        flex-direction: row;
+        width: fit-content;
+    }
 }

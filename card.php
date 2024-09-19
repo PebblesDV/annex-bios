@@ -6,31 +6,22 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
     <!-- start for each loop here for singular object so it loads in through foreach loop-->
 
     <?php
+    $i = 0;  // Counter for movies displayed
 
-
-    $i = 0;
-    // var_dump($playingMovieData);
-
-    if (isset($movieData['data'])) {
-        // foreach ($playingMovieData['data'] as $playingMovieData) {
-        //     echo $playingMovieData['movie_id'];
+    // Check if movie data exists and is an array
+    if (isset($movieData['data']) && is_array($movieData['data'])) {
         foreach ($movieData["data"] as $data) {
+            // Limit movies to 6 if on index.php
             if ($lessMovies && $i >= 6) {
                 break;
             }
 
-            //put $i++ here if u want it to break or sum idk
-
-            // if ($data['api_id'] == $playingMovieData['movie_id']) {
-            //load in movies
-
             $i++;
-
     ?>
-            <div class="card card-row">
+            <div class="card">
                 <img class="card-img" src="<?= $data['image'] ?>" alt="movie">
                 <div class="info-and-btn">
-                    <div class="card-info card-info-center">
+                    <div class="card-info">
                         <h2 class="text"><?= $data['title'] ?></h2>
                         <p class="text">Release: <?= $data['release_date'] ?></p>
                         <p class="movie-info text"><?= $data['description'] ?></p>
@@ -40,14 +31,10 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
             </div>
     <?php
         }
-        // }
+        //     }
         // }
     } else {
-        echo 'error, no "data" found';
+        echo 'Error: No movie data found.';
     }
     ?>
 </div>
-
-</body>
-
-</html>

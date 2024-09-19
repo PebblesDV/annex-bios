@@ -1,10 +1,9 @@
-// script.js
 const rows = 10;
 const cols = 8;
-const seatMap = []; // 2D array to represent the seating layout
+const seatMap = []; // 2D array for seat layout
 const seatMapContainer = document.getElementById('seat-map');
 
-// Initialize seat map (0 = available, 1 = reserved)
+// setting up tha seat map :3
 for (let i = 0; i < rows; i++) {
     const row = [];
     for (let j = 0; j < cols; j++) {
@@ -13,9 +12,9 @@ for (let i = 0; i < rows; i++) {
     seatMap.push(row);
 }
 
-// Render the seat map
+// the function for the seating n stuff
 function renderSeatMap() {
-    seatMapContainer.innerHTML = ''; // Clear existing seat map
+    seatMapContainer.innerHTML = ''; // clearing the existing map
     seatMapContainer.style.gridTemplateColumns = `repeat(${rows}, 1fr)`
     seatMap.forEach((row, rowIndex) => {
         row.forEach((seat, colIndex) => {
@@ -24,14 +23,13 @@ function renderSeatMap() {
             seatElement.dataset.row = rowIndex;
             seatElement.dataset.col = colIndex;
 
-            // Add class based on seat state
+            // Add class to seats
             if (seat.reserved) {
                 seatElement.classList.add('reserved');
             } else if (seat.selected) {
                 seatElement.classList.add('selected');
             }
 
-            // Add click event listener if seat is not reserved
             if (!seat.reserved) {
                 seatElement.addEventListener('click', () => toggleSeatSelection(rowIndex, colIndex));
             }
@@ -49,15 +47,15 @@ function renderSeatMap() {
     document.getElementById('selected-seats-columns').textContent = `stoel ${colsDisplay}`;
 }
 
-// Toggle seat selection
+// Toggle voor de stoel selecctie
 function toggleSeatSelection(row, col) {
     const seat = seatMap[row][col];
-    seat.selected = !seat.selected; // Toggle selection state
+    seat.selected = !seat.selected; // de toggle
     renderSeatMap();
     console.log(seatMap);
 }
 
-// Get a list of selected seats
+// Get a list of the seats
 function getSelectedSeats() {
     const selectedSeats = [];
     seatMap.forEach((row, rowIndex) => {

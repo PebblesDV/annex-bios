@@ -115,7 +115,7 @@ include_once "APIconnect.php";
                         <iframe
                             width="100%"
                             height="100%"
-                            src="<?= $data['trailer_link'] ?>"
+                            src="<?= $data['embedded_trailer_link'] ?>"
                             class="trailer"
                             title="YouTube video player"
                             frameborder="0"

@@ -6,48 +6,35 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
     <!-- start for each loop here for singular object so it loads in through foreach loop-->
 
     <?php
+    $i = 0;  // Counter for movies displayed
 
+    // Check if movie data exists and is an array
+    if (isset($movieData['data']) && is_array($movieData['data'])) {
+        foreach ($movieData["data"] as $data) {
+            // Limit movies to 6 if on index.php
+            if ($lessMovies && $i >= 6) {
+                break;
+            }
 
-    $i = 0;
-    // var_dump($playingMovieData);
-
-    if (isset($movieData['data'])) {
-        // foreach ($playingMovieData['data'] as $playingMovieData) {
-            //     echo $playingMovieData['movie_id'];
-            foreach ($movieData["data"] as $data) {
-                if ($lessMovies && $i >= 6) {
-                    break;
-                }
-
-                //put $i++ here if u want it to break or sum idk
-
-                // if ($data['api_id'] == $playingMovieData['movie_id']) {
-                    //load in movies
-
-                    $i++;
-
-    ?>
+            $i++;
+                    ?>
                     <div class="card">
-                        <img class="card-img" src="<?= $data['image'] ?>" alt="movie">
+                        <img class="card-img" src="<?=$data['image']?>" alt="movie">
                         <div class="info-and-btn">
                             <div class="card-info">
-                                <h2 class="text"><?= $data['title'] ?></h2>
-                                <p class="text">Release: <?= $data['release_date'] ?></p>
-                                <p class="movie-info text"><?= $data['description'] ?></p>
+                                <h2 class="text"><?=$data['title']?></h2>
+                                <p class="text">Release: <?= $data['release_date']?></p>
+                                <p class="movie-info text"><?=$data['description']?></p>
                             </div>
-                            <a href="film-detail.php?id=<?= $data['api_id'] ?>" class="card-btn">MEER INFO & TICKETS</a>
+                            <a href="film-detail.php?id=<?=$data['api_id']?>" class="card-btn">MEER INFO & TICKETS</a>
                         </div>
                     </div>
-    <?php
-                }
-            // }
+                <?php 
+        }
+        //     }
         // }
     } else {
-        echo 'error, no "data" found';
+        echo 'Error: No movie data found.';
     }
     ?>
 </div>
-
-</body>
-
-</html>

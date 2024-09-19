@@ -38,9 +38,15 @@ include_once "APIconnect.php";
 
             <div class="map-and-contact">
                 <div class="left-content">
-                    <div class="map-image">
-                        <a class="contact-link" href="https://maps.app.goo.gl/ViX3K9BdxHbCrBHb9" target="_blank"><img class="map" src="assets/images/maps/maps.png" alt="map"></a>
-                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4930.779697490401!2d4.1302237765539145!3d51.83557558667633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c451c6f4434d53%3A0x20bb4b6bcdd57904!2sRijksstraatweg%2042%2C%203223%20KA%20Hellevoetsluis!5e0!3m2!1snl!2snl!4v1726739076792!5m2!1snl!2snl"
+                        width="100%"
+                        height="250px"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                     <div class="contact">
                         <div class="contact-info">
                             <img class="icon" src="assets/images/icons/map-pin.svg" alt="map-pin">

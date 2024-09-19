@@ -50,7 +50,7 @@ body {
     }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1200px) {
     .container {
         padding-inline: 20px;
     }
@@ -318,7 +318,7 @@ body {
     }
 }
 
-@media screen and (min-width: 750px) and (max-width: 820px) {
+@media screen and (min-width: 750px) and (max-width: 1200px) {
     .container {
         padding-inline: 100px;
     }
@@ -334,5 +334,81 @@ body {
     .filters {
         flex-direction: row;
         width: fit-content;
+    }
+
+    .movie-img {
+        width: 70%;
+    }
+
+    .all-actors {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .logo-footer {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .selection-header {
+        width: 50%;
+        text-align: left;
+    }
+
+    .all-cards {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .movie-img {
+        width: 60%;
+    }
+
+    .all-actors {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .logo-footer {
+        width: 30%;
+    }
+
+    .overview {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .overview-img {
+        width: 20%;
+    }
+
+    .seat {
+        width: 42px;
+        height: 42px;
+    }
+
+    .seat::before {
+        width: 27px;
+        height: 14px;
+    }
+
+    .seat::after {
+        width: 27px;
+        height: 14px;
+    }
+
+    .movie-screen {
+        width: 80%;
+    }
+
+    .input-fields {
+        width: 50%;
+    }
+
+    .tickets {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .col-7 {
+        width: 100%;
     }
 }

@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let totalPrice = 0;
     let discount = 0;
+    let selectedSeatsCount = 0;
+    let maxSeats = 0;
 
     // Functioning society updates the total price <3
     function updateTotalPrice() {
-        let normaalQty = parseInt(document.getElementById('normaal').value);
-        let kindQty = parseInt(document.getElementById('kind').value);
-        let seniorQty = parseInt(document.getElementById('65').value);
+        let normaalQty = parseInt(document.getElementById('normaal').value) || 0;
+        let kindQty = document.getElementById('kind') ? parseInt(document.getElementById('kind').value) || 0 : 0;
+        let seniorQty = parseInt(document.getElementById('65').value) || 0;
 
         totalPrice = (normaalQty * ticketPrices.normaal) +
             (kindQty * ticketPrices.kind) +
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         totalPrice -= discount; // DISCCCOOUNTTTTT
 
         //sets the element with the id 'total-price' as the stuff u give it
-        document.getElementById('total-price').textContent = ` €${totalPrice.toFixed(2)}`;
+        document.getElementById('total-price').textContent = `€${totalPrice.toFixed(2)}`;
         //ON TO THE TICKET AMOUNT UPDATINGGGG HEHEEEEE (along w values u give inside the () n everythanggg)
         updateTicketAmount(normaalQty, kindQty, seniorQty);
     }
@@ -48,26 +50,20 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('order-summary-2').textContent = ticketAmountText;
     }
 
-    // event listners because listening to people and validating their feelings is a nice thing to do <3
-    document.getElementById('normaal').addEventListener('change', updateTotalPrice);
-    document.getElementById('kind').addEventListener('change', updateTotalPrice);
-    document.getElementById('65').addEventListener('change', updateTotalPrice);
-
     // DISCCOOUUUNTTTTT (or not?!?!) (gone wrong) (NOT CLICKBAIT!!!111!!1 11111!!!!!)
     document.getElementById('code-input').addEventListener('click', function (e) {
         e.preventDefault();
 
-        let voucherCode = document.getElementById('voucher-input').value;
+        let voucherCode = document.getElementById('voucher-input').value.trim();
 
-        // just a stand in voucher code for now since ion got time for that hehe :3
         if (voucherCode === '9yearanniverssary') {
-            discount = discount + 9.99; // Hehehhe undertale reference
+            discount += 9.99; // Hehehhe undertale reference
             alert('Voucher applied!');
         } else if (voucherCode === 'bloxybingo20') {
-            discount = discount + 2.20;
+            discount += 2.20;
             alert('Voucher applied!');
         } else if (voucherCode === 'sans') {
-            discount = discount + 1;
+            discount += 1;
             alert('Voucher applied!');
         } else {
             discount = 0;
@@ -79,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update date and time display
     function updateDateTimeDisplay() {
-        let selectedDate = document.getElementById('date').options[document.getElementById('date').selectedIndex].value;
-        let selectedTime = document.getElementById('time').options[document.getElementById('time').selectedIndex].value;
+        let selectedDate = document.getElementById('date').value;
+        let selectedTime = document.getElementById('time').value;
 
         document.getElementById('selected-date').textContent = selectedDate;
         document.getElementById('selected-time').textContent = selectedTime;
@@ -90,87 +86,173 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('date').addEventListener('change', updateDateTimeDisplay);
     document.getElementById('time').addEventListener('change', updateDateTimeDisplay);
 
-    let selectedSeats = 0; // To keep track of seats selected
-    let maxSeats = 0; // counter for the maximum seats
-
     function updateMaxSeats() {
-        let normaalQty = parseInt(document.getElementById('normaal').value);
-        let kindQty = parseInt(document.getElementById('kind').value);
-        let seniorQty = parseInt(document.getElementById('65').value);
+        let normaalQty = parseInt(document.getElementById('normaal').value) || 0;
+        let kindQty = document.getElementById('kind') ? parseInt(document.getElementById('kind').value) || 0 : 0;
+        let seniorQty = parseInt(document.getElementById('65').value) || 0;
 
         maxSeats = normaalQty + kindQty + seniorQty;
+        renderSeatMap();
+    }
 
-        // Zou ervoor moeten zorgen dat hoevel stoelen je selecteerd wordt ge update maar werkt voor nu nog niet
-        document.querySelectorAll('.seat').forEach(function (seat) {
-            seat.addEventListener('click', function () {
-                if (selectedSeats < maxSeats || seat.classList.contains('selected')) {
-                    seat.classList.toggle('selected');
-                    selectedSeats = document.querySelectorAll('.seat.selected').length;
-                } else {
-                    alert('Je kunt niet meer stoelen selecteren dan het aantal tickets.');
+    document.getElementById('normaal').addEventListener('change', function() {
+        updateMaxSeats();
+        updateTotalPrice();
+    });
+    if (document.getElementById('kind')) {
+        document.getElementById('kind').addEventListener('change', function() {
+            updateMaxSeats();
+            updateTotalPrice();
+        });
+    }
+    document.getElementById('65').addEventListener('change', function() {
+        updateMaxSeats();
+        updateTotalPrice();
+    });
+
+    const rows = 11;
+    const cols = 10;
+    const seatMap = [];
+    const seatMapContainer = document.getElementById('seat-map');
+
+    for (let i = 0; i < rows; i++) {
+        const row = [];
+        for (let j = 0; j < cols; j++) {
+            row.push({ reserved: false, selected: false });
+        }
+        seatMap.push(row);
+    }
+
+    function renderSeatMap() {
+        seatMapContainer.innerHTML = '';
+        seatMapContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+
+        seatMap.forEach((row, rowIndex) => {
+            row.forEach((seat, colIndex) => {
+                const seatElement = document.createElement('div');
+                seatElement.classList.add('seat');
+                seatElement.dataset.row = rowIndex;
+                seatElement.dataset.col = colIndex;
+
+                if (seat.reserved) {
+                    seatElement.classList.add('reserved');
+                }
+                if (seat.selected) {
+                    seatElement.classList.add('selected');
+                }
+
+                if (!seat.reserved) {
+                    seatElement.addEventListener('click', () => toggleSeatSelection(rowIndex, colIndex));
+                }
+
+                seatMapContainer.appendChild(seatElement);
+            });
+        });
+
+        updateSelectedSeatsDisplay();
+    }
+
+    function updateSelectedSeatsDisplay() {
+        const selectedSeats = getSelectedSeats();
+        const rowsDisplay = selectedSeats.map(seat => seat.row + 1).join(', ') || '-';
+        const colsDisplay = selectedSeats.map(seat => seat.col + 1).join(', ') || '-';
+
+        document.getElementById('selected-seats-rows').textContent = `Rij ${rowsDisplay}`;
+        document.getElementById('selected-seats-columns').textContent = `stoel ${colsDisplay}`;
+    }
+
+    function toggleSeatSelection(row, col) {
+        const seat = seatMap[row][col];
+        if (seat.reserved) return;
+
+        if (seat.selected) {
+            seat.selected = false;
+            selectedSeatsCount--;
+        } else if (selectedSeatsCount < maxSeats) {
+            seat.selected = true;
+            selectedSeatsCount++;
+        } else {
+            alert('Je kunt niet meer stoelen selecteren dan het aantal tickets.');
+            return;
+        }
+        renderSeatMap();
+    }
+
+    function getSelectedSeats() {
+        const selectedSeats = [];
+        seatMap.forEach((row, rowIndex) => {
+            row.forEach((seat, colIndex) => {
+                if (seat.selected) {
+                    selectedSeats.push({ row: rowIndex, col: colIndex });
                 }
             });
         });
+        return selectedSeats;
     }
 
-    // the function them h2o's call to update their hgs about the drama
-    document.getElementById('normaal').addEventListener('change', updateMaxSeats);
-    document.getElementById('kind').addEventListener('change', updateMaxSeats);
-    document.getElementById('65').addEventListener('change', updateMaxSeats);
-
-
     document.getElementById('checkingOut').addEventListener('click', function (event) {
-        event.preventDefault(); // prevent default form submission
+        event.preventDefault();
 
-        const firstNameElement = document.getElementById('firstName');
-        const lastNameElement = document.getElementById('lastName');
-        const emailElement = document.getElementById('email');
-        const emailConfirmElement = document.getElementById('emailConfirm');
+        const firstName = document.getElementById('firstName') ? document.getElementById('firstName').value.trim() : '';
+        const lastName = document.getElementById('lastName') ? document.getElementById('lastName').value.trim() : '';
+        const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+        const emailConfirm = document.getElementById('emailConfirm') ? document.getElementById('emailConfirm').value.trim() : '';
 
-          // console.log voor debuggen n shit, zal later weg gaan.
-          console.log("firstNameElement:", firstNameElement);
-          console.log("lastNameElement:", lastNameElement);
-          console.log("emailElement:", emailElement);
-          console.log("emailConfirmElement:", emailConfirmElement);
-
-        // Getting them values
-        const firstName = firstNameElement ? firstNameElement.value.trim() : '';
-        const lastName = lastNameElement ? lastNameElement.value.trim() : '';
-        const email = emailElement ? emailElement.value.trim() : '';
-        const emailConfirm = emailConfirmElement ? emailConfirmElement.value.trim() : '';
+        const movieTitle = document.querySelector('.overview-text h2.gray') ? document.querySelector('.overview-text h2.gray').textContent.trim() : '';
+        const selectedDate = document.getElementById('selected-date') ? document.getElementById('selected-date').textContent.trim() : '';
+        const selectedTime = document.getElementById('selected-time') ? document.getElementById('selected-time').textContent.trim() : '';
+        const selectedSeatsRows = document.getElementById('selected-seats-rows') ? document.getElementById('selected-seats-rows').textContent.trim() : '';
+        const selectedSeatsColumns = document.getElementById('selected-seats-columns') ? document.getElementById('selected-seats-columns').textContent.trim() : '';
+        const ticketSummary = document.getElementById('order-summary-1') ? document.getElementById('order-summary-1').textContent.trim() : '';
+        const totalPrice = document.getElementById('total-price') ? document.getElementById('total-price').textContent.trim() : '';
 
         const paymentMethods = Array.from(document.querySelectorAll('input[name="paymentMethod"]:checked')).map(input => input.value);
         const termsAccepted = document.getElementById('terms') ? document.getElementById('terms').checked : false;
 
-        if (!firstName || !lastName || !email || !emailConfirm) {
-            alert('Niet alle velden zijn ingevuld. Vul deze in om verder te gaan.');
-            return;
-        }
-
-
-        if (email !== emailConfirm) {
-            alert('E-mailadressen komen niet overeen.');
-            return;
-        }
-
-        if (!termsAccepted) {
-            alert('Je moet akkoord gaan met onze voorwaarden om door te gaan.');
-            return;
-        }
-
-        if (paymentMethods.length === 0) {
-            alert('Selecteer een betalingsmethode.');
-            return;
-        }
-
-        // this is when we process the data, will probbably have to send an alert n say yo order was made or sum n reload the page idk yet
-        console.log('Form data:', {
+        console.log('Form values:', {
             firstName,
             lastName,
             email,
             emailConfirm,
+            movieTitle,
+            selectedDate,
+            selectedTime,
+            selectedSeatsRows,
+            selectedSeatsColumns,
+            ticketSummary,
+            totalPrice,
             paymentMethods,
             termsAccepted
         });
+
+        if (!firstName || !lastName || !email || !emailConfirm || !movieTitle ||
+            selectedDate === '-' || selectedTime === '-' || selectedSeatsRows === 'Rij -' || selectedSeatsColumns === 'stoel -' ||
+            ticketSummary === 'Geen tickets geselecteerd' || totalPrice === '€0,00') {
+            alert('Niet alle velden zijn ingevuld. Vul deze in om verder te gaan.');
+            return;
+        } else if (email !== emailConfirm) {
+            alert('E-mailadressen komen niet overeen.');
+            return;
+        } else if (paymentMethods.length === 0) {
+            alert('Selecteer een betalingsmethode.');
+            return;
+        } else if (!termsAccepted) {
+            alert('Je moet akkoord gaan met onze voorwaarden om door te gaan.');
+            return;
+        }
+
+        const selectedSeats = getSelectedSeats();
+        if (selectedSeats.length > 0) {
+            selectedSeats.forEach(seat => {
+                seatMap[seat.row][seat.col].reserved = true;
+
+                console.log(seatMap[seat.row][seat.col].reserved);
+            });
+            renderSeatMap();
+        }
+
+        alert('Order confirmed! Thank you for your purchase.');
+        // window.location.reload();
     });
+    renderSeatMap();
 });

@@ -17,19 +17,19 @@ i can use a while loop for like $i = 1 while($i < 6) {do the things but also a $
             }
 
             $i++;
-                    ?>
-                    <div class="card">
-                        <img class="card-img" src="<?=$data['image']?>" alt="movie">
-                        <div class="info-and-btn">
-                            <div class="card-info">
-                                <h2 class="text"><?=$data['title']?></h2>
-                                <p class="text">Release: <?= $data['release_date']?></p>
-                                <p class="movie-info text"><?=$data['description']?></p>
-                            </div>
-                            <a href="film-detail.php?id=<?=$data['api_id']?>" class="card-btn">MEER INFO & TICKETS</a>
-                        </div>
+    ?>
+            <div class="card">
+                <img class="card-img" src="<?= $data['image'] ?>" alt="movie">
+                <div class="info-and-btn">
+                    <div class="card-info">
+                        <h2 class="text"><?= $data['title'] ?></h2>
+                        <p class="text">Release: <?= $data['release_date'] ?></p>
+                        <p class="movie-info text"><?= $data['description'] ?></p>
                     </div>
-                <?php 
+                    <a href="film-detail.php?id=<?= $data['api_id'] ?>" class="card-btn">MEER INFO & TICKETS</a>
+                </div>
+            </div>
+    <?php
         }
         //     }
         // }

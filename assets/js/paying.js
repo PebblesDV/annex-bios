@@ -58,16 +58,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (voucherCode === '9yearanniverssary') {
             discount += 9.99; // Hehehhe undertale reference
-            alert('Voucher applied!');
+            alert('Voucher gebruikt!');
         } else if (voucherCode === 'bloxybingo20') {
             discount += 2.20;
-            alert('Voucher applied!');
+            alert('Voucher gebruikt!');
         } else if (voucherCode === 'sans') {
             discount += 1;
-            alert('Voucher applied!');
+            alert('Voucher gebruikt!');
         } else {
             discount = 0;
-            alert('Invalid voucher code');
+            alert('Ongeldige vouchercode');
         }
 
         updateTotalPrice(); // UPDATING THA HO'S PRICE CUZ SHE GOTTA AKNOW WHASSUUPP
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
             renderSeatMap();
         }
 
-        alert('Order confirmed! Thank you for your purchase.');
+        alert('Bestelling bevestigd! Bedankt voor je aankoop.');
         // window.location.reload();
     });
     renderSeatMap();

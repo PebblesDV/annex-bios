@@ -45,12 +45,17 @@ include_once('APIconnect.php');
                 foreach ($movieData['data'] as $data) {
                     if ($data['api_id'] == $id) {
 
+                        if (isset($playingMovieData['data']) && isset($playingMovieData['data'][0]['play_time'])) {
                         //spliting the date info cuz we don need allat
                         $datetime_split = explode(' ', $playingMovieData['data'][0]['play_time']);
 
                         // seperating the date n time like a bad bitch <3
                         $date = $datetime_split[0];
                         $time = $datetime_split[1];
+                        } else {
+                            $date = '27-9-2024';
+                            $time = '22:00:00';
+                        }
             ?>
 
                         <div class="order-filters">

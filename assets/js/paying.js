@@ -239,6 +239,10 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (!termsAccepted) {
             alert('Je moet akkoord gaan met onze voorwaarden om door te gaan.');
             return;
+        } else if (selectedSeatsCount !== maxSeats){
+            alert('Minder dan de geselecteerde stoelen gekozen. Ga terug om het correcte aantal te selecteren.');
+        } else {
+            alert('Bestelling bevestigd! Bedankt voor je aankoop.');
         }
 
         const selectedSeats = getSelectedSeats();
@@ -248,11 +252,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 console.log(seatMap[seat.row][seat.col].reserved);
             });
+            sessionStorage.setItem('reservedSeats', JSON.stringify(selectedSeats));
             renderSeatMap();
         }
-
-        alert('Bestelling bevestigd! Bedankt voor je aankoop.');
-        // window.location.reload();
     });
     renderSeatMap();
 });
